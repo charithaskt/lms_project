@@ -1,0 +1,20 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>Author: {{ authors.lastname }}, {{ authors.firstname }}</h1>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Books</h4>
+
+    {% for book in biblios %}
+      <hr>
+      <p><strong>Title:</strong> {{ book.title }}</p>
+      {%if book.edition %}<p><strong>Edition:</strong> {{ book.edition }} {% endif %}</p>
+      {%if book.copyrightdate %}<p><strong>Year:</strong> {{ book.copyrightdate }} {% endif %}</p>
+      {%if book.publisher %}<p><strong>Publisher:</strong> {{ book.publisher.name }} {% endif %}</p>
+      {% if book.genre %}
+      <p><strong>Genre:</strong> {% for genre in book.genre.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+      {% endif %} 
+    {% endfor %}
+  </div>
+{% endblock %}

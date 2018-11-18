@@ -1,0 +1,24 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>Book List</h1>
+  {% if biblio_list %}
+  <ul>
+    {% for book in biblio_list %}
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> 
+          {%if book.authors %} 
+              (
+             {% for author in book.authors.all %}
+              {{author}}
+              {% if not forloop.last %}, {% endif %}
+              )
+             {% endfor %}
+          {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}       
+{% endblock %}

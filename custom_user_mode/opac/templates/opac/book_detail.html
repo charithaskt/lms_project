@@ -1,0 +1,27 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+    <h1>Title: {{ book.title }}</h1>
+    {% if book.authors %}
+      <p><strong>Author(s):</strong> {% for author in book.authors.all %} <a href="{{ author.get_absolute_url }}">{{ author }}</a> {% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+    {% endif %}
+    {% if book.isbn %}
+      <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    {% endif %}
+    {% if book.publisher %}
+    <p><strong>Imprint:</strong> {{book.publisher}}</p>
+    {% endif %}    
+    {% if book.genre %}
+      <p><strong>Genre:</strong> {% for genre in book.genre.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+    {% endif %}
+    {% if book.items_set.all %}
+     <div style="margin-left:20px;margin-top:20px">
+      <h4>Copies</h4>
+      {% for copy in book.items_set.all %}
+        <hr>
+        <p class="{% if copy.itemstatus == 'AV' %}text-success{% elif copy.itemstatus in nfl_status %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_itemstatus_display }}</p>
+        <p class="text-muted"><strong>Barcode:</strong> {{copy.barcode}}</p>
+      {% endfor %}
+    </div>
+   {% endif %}
+{% endblock %}

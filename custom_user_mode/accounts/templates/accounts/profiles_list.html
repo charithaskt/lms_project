@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Library User Profiles</h1>
+  <p>
+    <a href="{% url 'logout' %}">Log out</a>
+  </p>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>UserID</th>
+        <th>Email</th>
+        <th>Full Name</th>
+        <th>Title</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Address2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in profiles %}
+        <tr>
+          <td>{{ profile.userid }}</td>
+          <td>{{ profile.user.email }}</td>
+          <td>{{ profile.surname }} {{ profile.firstname }}</td>
+          <td>{{ profile.title }}</td>
+          <td>{{ profile.sex}}</td>
+          <td>{{ profile.birth_date }}</td>
+          <td>{{ profile.mobile }}</td>
+          <td>{{ profile.address }}</td>
+          <td>{{ profile.address2 }}</td>
+          <td>{{ profile.city }}</td>
+          <td>{{ profile.state }}</td>
+          <td>{{ profile.zipcode }}</td>
+          <td>{{ profile.country }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No profiles</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+

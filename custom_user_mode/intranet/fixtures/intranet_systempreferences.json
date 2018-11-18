@@ -1,0 +1,386 @@
+[
+{
+    "model": "intranet.systempreferences",
+    "pk": 1,
+    "fields": {
+        "variable": "AllowFineOverride",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow staff  to issue books to patrons with fines greater than 'noissuescharge'",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 2,
+    "fields": {
+        "variable": "AllowNotForLoanOverride",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow staff to override and check out items that are marked as not for loan",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 3,
+    "fields": {
+        "variable": "AllowItemsOnHoldCheckout",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow checkouts of items reserved to someone else",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 4,
+    "fields": {
+        "variable": "AllowMultipleIssuesOnABiblio",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow patrons to check out multiple items from the same record",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 5,
+    "fields": {
+        "variable": "AllowRenewalLimitOverride",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow staff to manually override renewal blocks and renew a checkout when it would go over the renewal limit or be premature with respect to the \"no renew before\" setting in the circulation policy",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 6,
+    "fields": {
+        "variable": "IssueLostItem",
+        "value": "Alert",
+        "options": "Alert|Confirm|Nothing",
+        "descriptive_options": "Alert|Confirm|Nothing",
+        "explanation": "Defines what should be done when an attempt is made to issue an item that has been marked as lost",
+        "vartype": "Choice"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 7,
+    "fields": {
+        "variable": "maxoutstanding",
+        "value": "100",
+        "options": "0|1000",
+        "descriptive_options": "Range(0,1000)",
+        "explanation": "Prevent patrons from making holds on the OPAC if they owe more than___ in fines",
+        "vartype": "MinMax"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 8,
+    "fields": {
+        "variable": "noissuescharge",
+        "value": "100",
+        "options": "0|1000",
+        "descriptive_options": "Range(0,1000)",
+        "explanation": "Prevent patrons from checking out books if they have more than ___ in fines",
+        "vartype": "MinMax"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 9,
+    "fields": {
+        "variable": "OrduesBlockCirc",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't block when checking out to a borrower who has overdue outstanding",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 10,
+    "fields": {
+        "variable": "RenewalPeriodBase",
+        "value": "currentdate",
+        "options": "currentdate|duedate",
+        "descriptive_options": "current date|due date",
+        "explanation": "When renewing checkouts, base the new due date on current date or due date",
+        "vartype": "Choice"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 11,
+    "fields": {
+        "variable": "RentalsInNoissuesCharge",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't include rental charge  in 'noissuecharge'",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 12,
+    "fields": {
+        "variable": "finesIncludeCalendar",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Calculate fines based on days overdue not including or including the days the library is closed",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 13,
+    "fields": {
+        "variable": "WhenLostChargeReplacementFee",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't Charge  the replacement price when a patron loses an item",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 14,
+    "fields": {
+        "variable": "WhenLostForgiveFine",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't forgive the fines on an item when it is lost",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 15,
+    "fields": {
+        "variable": "AllowHoldPolicyOverride",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow staff to override hold policies when placing holds",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 16,
+    "fields": {
+        "variable": "AllowHoldsOnDamagedItems",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow holds on damaged items",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 17,
+    "fields": {
+        "variable": "AllowHoldsOnPatronsPossessions",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow a patron to place a hold on a record where the patron already has one or more items attached to that record checked out",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 18,
+    "fields": {
+        "variable": "AllowOnShelfHolds",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow hold requests to be placed on items that are not checked out",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 19,
+    "fields": {
+        "variable": "maxreserves",
+        "value": "2",
+        "options": "0|10",
+        "descriptive_options": "Range(0,10)",
+        "explanation": "Patrons can only have ___ holds at once",
+        "vartype": "MinMax"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 20,
+    "fields": {
+        "variable": "OPACSuspendHolds",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't suspend holds by patrons through OPAC",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 21,
+    "fields": {
+        "variable": "WaitingNotifyAtCheckin",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't notify librarians of waiting holds for the patron whose items they are checking in",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 22,
+    "fields": {
+        "variable": "CoverImagesAmazonGoogleLocalNone",
+        "value": "None",
+        "options": "Amazon|Google|Local|None",
+        "descriptive_options": "Amazon|Google|Local|None",
+        "explanation": "Show Amazon/Google/Local/None Cover Images in staff client",
+        "vartype": "Choice"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 23,
+    "fields": {
+        "variable": "OPACCoverImagesAmazonGoogleLocalNone",
+        "value": "None",
+        "options": "Amazon|Google|Local|None",
+        "descriptive_options": "Amazon|Google|Local|None",
+        "explanation": "Show Amazon/Google/Local/None Cover Images in OPAC",
+        "vartype": "Choice"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 27,
+    "fields": {
+        "variable": "OPACTagsEnabled",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow patron to put tags on items",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 28,
+    "fields": {
+        "variable": "dateformat",
+        "value": "ISO",
+        "options": "ISO|US|UK",
+        "descriptive_options": "ISO|US|UK",
+        "explanation": "Date Format : yyyy-mm-dd (ISO) | mm/dd/yyyy (US) | dd/mm/yyyy (UK))",
+        "vartype": "Choice"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 29,
+    "fields": {
+        "variable": "timeformat",
+        "value": "12hr",
+        "options": "12hr|24hr",
+        "descriptive_options": "12hr|24hr",
+        "explanation": "Time format : _____ (12hr | 24 hr)",
+        "vartype": "Choice"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 30,
+    "fields": {
+        "variable": "OPACLibraryname",
+        "value": "Example Library",
+        "options": "None",
+        "descriptive_options": "None",
+        "explanation": "Library name __________ to appear in OPAC",
+        "vartype": "Text"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 31,
+    "fields": {
+        "variable": "OPACPatronSelfRegistration",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow patron self registration",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 32,
+    "fields": {
+        "variable": "MaxFine",
+        "value": "0",
+        "options": "0|1000",
+        "descriptive_options": "Range(0,1000)",
+        "explanation": "The late fine for all checkouts will only go up to ___ (0 value means no limit)",
+        "vartype": "MinMax"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 33,
+    "fields": {
+        "variable": "patronimages",
+        "value": "1",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow images to be uploaded and shown for patrons on the staff client",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 34,
+    "fields": {
+        "variable": "OPACGooglePreviews",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't show Google Previews",
+        "vartype": "YesNo"
+    }
+},
+{
+    "model": "intranet.systempreferences",
+    "pk": 35,
+    "fields": {
+        "variable": "OPACRssFeeds",
+        "value": "0",
+        "options": "0|1",
+        "descriptive_options": "Don't|Do",
+        "explanation": "Do/Don't allow subscription to RSS feeds",
+        "vartype": "YesNo"
+    }
+}
+]

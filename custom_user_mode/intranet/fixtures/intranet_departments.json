@@ -1,0 +1,34 @@
+[
+{
+    "model": "intranet.departments",
+    "pk": 1,
+    "fields": {
+        "deptcode": "CSE",
+        "description": "Computer Science"
+    }
+},
+{
+    "model": "intranet.departments",
+    "pk": 2,
+    "fields": {
+        "deptcode": "ECE",
+        "description": "Electronics & Communication Engineering"
+    }
+},
+{
+    "model": "intranet.departments",
+    "pk": 3,
+    "fields": {
+        "deptcode": "English",
+        "description": "Department of English"
+    }
+},
+{
+    "model": "intranet.departments",
+    "pk": 4,
+    "fields": {
+        "deptcode": "Maths",
+        "description": "Department of Mathematics"
+    }
+}
+]
