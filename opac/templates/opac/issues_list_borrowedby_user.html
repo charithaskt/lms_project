@@ -1,0 +1,25 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+    <h1>Borrowed books</h1>
+
+    {% if issues_list %}
+    <ul>
+
+      {% for issueinst in issues_list %} 
+      <li class="{% if issueinst.is_overdue %}text-danger{% endif %}">
+        <a href="{% url 'biblio-detail' issueinst.item.biblionumber.pk %}">{{issueinst.item.biblionumber.title}}</a> ({{ issueinst.date_due }})       
+        {% if perms.accounts.can_self_renew %}
+             {% if renewalsallowed > issueinst.renewals %}
+                 - <span><a href="{% url 'renew-book-self' issueinst.id %}" style="color:green;">(Renew) {{ issueinst.item.biblionumber.pk}}/{{issuelength}}</a> </span>
+             {% endif %}
+        {% endif %} 
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}       
+{% endblock %}
+
