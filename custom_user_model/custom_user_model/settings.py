@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'opac',
     'ilsapi',
     'photos',
+    'idapp',
 ]
 
 MIDDLEWARE = [

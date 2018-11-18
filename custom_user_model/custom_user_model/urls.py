@@ -59,6 +59,8 @@ urlpatterns = [
     #patron bulk photos_upload
     url(r'^photos-home/', TemplateView.as_view(template_name='photos-home.html'), name='photos-home'),
     url(r'^photos/', include(('photos.urls', 'photos'), namespace='photos')),
+    path('idapp/', include('idapp.urls')),
+    path('barcode/<str:userid>', idapp_views.barcode,name='barcode_id'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if JWTAUTH:
