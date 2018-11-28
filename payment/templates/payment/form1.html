@@ -7,20 +7,12 @@
 
 
 <center><h1>Please do not refresh this page...</h1></center>
-<form method="post" action="https://securegw-stage.paytm.in/theia/processTransaction" name="f1">
+<form method="post" action="https://securegw-stage.paytm.in/theia/processTransaction" name="f1">{% csrf_token %}
     <table border="1">
         <tbody>
-        <input type="hidden" name="MID" value="LDSSev95602499938192">
-        <input type="hidden" name="WEBSITE" value="WEBSTAGING">
-        <input type="hidden" name="ORDER_ID" value="order1">
-        <input type="hidden" name="CUST_ID" value="cust123">
-        <input type="hidden" name="MOBILE_NO" value="7777777777">
-        <input type="hidden" name="EMAIL" value="username@emailprovider.com">
-        <input type="hidden" name="INDUSTRY_TYPE_ID" value="Retail">
-        <input type="hidden" name="CHANNEL_ID" value="WEB">
-        <input type="hidden" name="TXN_AMOUNT" value="100.12">
-        <input type="hidden" name="CALLBACK_URL" value="{% url 'check' %}">
-        <input type="hidden" name="CHECKSUMHASH" value="{{ paytmParams.CHECKSUMHASH}}">
+        {% for key,value in paytmDict.items %}
+            <input type='hidden' name = '{{key}}' value = '{{ value }}' ><br>
+        {% endfor %}
         </tbody>
     </table>
     <script type="text/javascript">

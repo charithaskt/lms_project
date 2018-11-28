@@ -15,15 +15,10 @@
         <td>(Please do not press 'Refresh' or 'Back' button</td>
     </tr>
 </table>
-<FORM NAME='TESTFORM' ACTION="{% url 'status.html' %}"  METHOD='POST'>
-
-
-    {% for key,value in paytmParams %}
-    <input type='hidden' name='{{key}}' value='{{ value }}'><br>
+<FORM NAME='TESTFORM' ACTION="{% url 'status' %}"  METHOD='POST'>
+    {% for key,value in paytmDict.items %}
+        <input type='hidden' name='{{key}}' value='{{ value }}'><br>
     {% endfor %}
-
-
-
 </FORM>
 </body>
 <script type="text/javascript">  document.forms[0].submit();</script>
