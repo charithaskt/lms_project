@@ -8,6 +8,8 @@ from payment import Checksum
 from payment.Checksum import generate_checksum, verify_checksum, generate_checksum_by_str, verify_checksum_by_str
 from intranet import models
 from intranet.models import Borrowers
+from payment.models import PaytmHistory
+
 
 @csrf_exempt
 def pay(request):
@@ -22,6 +24,7 @@ def pay(request):
     industryTypeId = 'Retail'
     callbackUrl = settings.HOST_URL + settings.PAYTM_CALLBACK_URL
 
+
     paytmParams = {
         'MID': merchantMid,
         'ORDER_ID': order_id,
@@ -35,7 +38,6 @@ def pay(request):
     }
 
     paytmChecksum = generate_checksum(paytmParams, merchantKey)
-    print(paytmChecksum)
 
     paytmParams['CHECKSUMHASH'] = paytmChecksum
 
@@ -57,7 +59,6 @@ def check(request):
         for key in request.POST:
             data_dict[key] = request.POST[key]
 
-        print(data_dict)
 
         if 'CHECKSUMHASH' in data_dict.keys():
 
@@ -71,7 +72,9 @@ def check(request):
         isValidChecksum = verify_checksum_by_str(data_dict, merchantKey, paytmChecksum)
 
         context = {'paytmDict': data_dict}
+
         if (isValidChecksum):
+            PaytmHistory.objects.create(user=request.user, **data_dict)
             return render(request, 'payment/form2.html', context)
         else:
             return HttpResponse("checksum verify failed")
