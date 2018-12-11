@@ -1,15 +1,14 @@
 from django.db import models
-
 from django.conf import settings
-
 from django.utils import timezone
+from accounts.models import User
 
 
 class PaytmHistory(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rel_payment_paytm', on_delete=models.PROTECT)
+    #user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rel_payment_paytm', on_delete=models.PROTECT)
     ORDERID = models.CharField('ORDER ID', max_length=30)
     TXNDATE = models.DateTimeField('TXN DATE', default=timezone.now)
-    TXNID = models.IntegerField('TXN ID')
+    TXNID = models.CharField('TXN ID', max_length=999)
     BANKTXNID = models.IntegerField('BANK TXN ID', null=True, blank=True)
     BANKNAME = models.CharField('BANK NAME', max_length=50, null=True, blank=True)
     RESPCODE = models.IntegerField('RESP CODE')
@@ -22,7 +21,7 @@ class PaytmHistory(models.Model):
     STATUS = models.CharField('STATUS', max_length=12)
 
     class Meta:
-        app_label = 'paytm'
+        app_label = 'payment'
 
     def __unicode__(self):
         return self.STATUS

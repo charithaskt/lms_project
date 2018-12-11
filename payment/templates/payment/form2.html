@@ -15,7 +15,9 @@
         <td>(Please do not press 'Refresh' or 'Back' button</td>
     </tr>
 </table>
-<FORM NAME='TESTFORM' ACTION="{% url 'status' %}"  METHOD='POST'>
+
+
+<FORM NAME='TESTFORM' ACTION="{% url 'status' %}"  METHOD='POST'>{% csrf_token %}
     {% for key,value in paytmDict.items %}
         <input type='hidden' name='{{key}}' value='{{ value }}'><br>
     {% endfor %}

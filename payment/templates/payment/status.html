@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1>uyjtfgd</h1>
+{% if resultDict.STATUS == 'TXN_SUCCESS' %}
+    <h6> Transaction Success</h6>
+{% else %}
+    <h6>{{ resultDict.STATUS }}</h6>
+{% endif %}
+{% else %}
+
 </body>
 </html>
