@@ -1,9 +1,3 @@
-/*  Free Template by www.library.com  */
-
-/* 
-Dragonfruit Template 
-http://www.library.com/preview/library_411_dragonfruit 
-*/
 
 jQuery(function(){
     $ = jQuery;

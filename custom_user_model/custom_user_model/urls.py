@@ -20,8 +20,8 @@ urlpatterns = [
     path('catalog/', include('opac.urls')),
     path('', RedirectView.as_view(url='/catalog/',permanent=True)), 
     #url(r'^$', views.home, name='home'),
-    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
+    url(r'^login/$', auth_views.LoginView, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', auth_views.LogoutView, {'next_page': 'login'}, name='logout'),
     #url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='ils-login'),
     #url(r'^logout/$', auth_views.logout, {'next_page': 'ils-login'}, name='ils-logout'),
 

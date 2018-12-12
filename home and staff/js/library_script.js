@@ -1,10 +1,3 @@
-/*  Free Template by www.library.com  */
-
-/* 
-Dragonfruit Template 
-http://www.library.com/preview/library_411_dragonfruit 
-*/
-
 jQuery(function(){
     $ = jQuery;
     $(window).load( function() {
@@ -296,49 +289,3 @@ jQuery(function(){
         }
     }); 
 });
-//google map
-function initialize(){
-    //define map
-    var map;
-    //lat lng
-    myLatlng = new google.maps.LatLng(16.8496189,96.1288854);
-    //define style
-    var styles = [
-        {
-            //set all color
-            featureType: "all",
-            stylers: [{ hue: "#35a9d8" }]
-        },
-        {
-            //hide business
-            featureType: "poi.business",
-            elementType: "labels",
-            stylers: [{ visibility: "off" }]
-        }
-    ];
-    //map options
-    var mapOptions = {
-        zoom: 16,
-        center: myLatlng ,
-        mapTypeControlOptions: {mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']} ,
-        panControl: false , //hide panControl
-        zoomControl: true , //hide zoomControl
-        mapTypeControl: false , //hide mapTypeControl
-        scaleControl: false , //hide scaleControl
-        streetViewControl: false , //hide streetViewControl
-        overviewMapControl: false , //hide overviewMapControl
-    }
-    //adding attribute value
-    map = new google.maps.Map(document.getElementById('library_contact_map'), mapOptions);
-    var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
-    map.mapTypes.set('map_style', styledMap);
-    map.setMapTypeId('map_style');
-    //add marker
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Welcome to Yangon'
-    });
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-google.maps.event.addDomListener(window, 'resize', initialize);
