@@ -5,7 +5,6 @@ from accounts.models import User
 
 
 class PaytmHistory(models.Model):
-    #user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rel_payment_paytm', on_delete=models.PROTECT)
     ORDERID = models.CharField('ORDER ID', max_length=30)
     TXNDATE = models.DateTimeField('TXN DATE', default=timezone.now)
     TXNID = models.CharField('TXN ID', max_length=999)

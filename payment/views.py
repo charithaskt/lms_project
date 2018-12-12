@@ -16,8 +16,12 @@ def pay(request):
     merchantKey = settings.PAYTM_MERCHANT_KEY
     order_id = Checksum.__id_generator__()
     channelId = 'WEB'
-    custId = "cxvcbcv"
-    txnAmount = '10'
+    custId = request.POST['cnumber']
+    txnAmount = request.POST['fine']
+
+    #custId = "fds"
+    #txnAmount = '43'
+
     website = 'WEBSTAGING'
     industryTypeId = 'Retail'
     callbackUrl = "http://127.0.0.1:8000/payment/check"
@@ -25,7 +29,7 @@ def pay(request):
     paytmParams = {
         'MID': merchantMid,
         'ORDER_ID': order_id,
-        'CUST_ID':custId,
+        'CUST_ID': custId,
         'INDUSTRY_TYPE_ID': industryTypeId,
         'CHANNEL_ID':channelId,
         'TXN_AMOUNT': txnAmount,
@@ -67,3 +71,7 @@ def status(request):
     print(data_dict)
     context = {'resultDict': data_dict}
     return render(request, 'payment/status.html', context )
+
+
+def pay_fine(request):
+    return render(request, 'payment/pay_fine.html')

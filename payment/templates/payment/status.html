@@ -6,11 +6,11 @@
 </head>
 <body>
 {% if resultDict.STATUS == 'TXN_SUCCESS' %}
-    <h6> Transaction Success</h6>
+    <h2> Transaction Success</h2>
 {% else %}
-    <h6>{{ resultDict.STATUS }}</h6>
+    <h2>{{ resultDict.STATUS }}</h2>
 {% endif %}
-{% else %}
+<a href="http://127.0.0.1:8000/">Go to Home Page</a>
 
 </body>
 </html>

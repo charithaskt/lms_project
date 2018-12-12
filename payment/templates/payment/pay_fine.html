@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Your Fines</title>
+</head>
+<body>
+<form action="{%  url 'pay' %}" method="post">
+    {%  csrf_token %}
+    Card Number:<input type="text" name="cnumber"><br>
+    Fine Amount:<input type="text" name="fine"><br>
+    <input type="submit" >
+</form>
+
+</body>
+</html>
