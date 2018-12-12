@@ -1,0 +1,84 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %}
+<title>User Registration details </title>
+{% endblock %}
+{% block additional_css %}
+<style>
+body{
+     background-color: cornsilk;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    border: 2px solid black;
+
+}
+.bigFont {
+    font-family: arial, sans-serif;
+    width:100%;
+    padding:0;
+    margin-top:10px;
+    margin-bottom:0%;
+    font-size: 34px
+}
+th{text-align: center;
+    padding: 15px;
+    background-color: aquamarine;
+}
+
+td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 15px;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div style="text-align: center;">
+    <h1 class="bigFont">Indian Institute of Information Technology,Sri City</h1>
+    <table width=100%>
+        <tr><th class="bigFont" colspan="2">IIIT, Sri City</th></tr>
+        <tr>
+            <th colspan="2">
+            ID CARD
+            </th>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td> {{ firstname }}</td>
+        </tr>
+
+        <tr>
+            <td>Surname:</td>
+            <td>{{ surname }}</td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td>{{ email }}</td>
+        </tr>
+
+        <tr>
+            <td>Mobile:</td>
+            <td>{{ mobile }}</td>
+        </tr>
+
+        <tr>
+            <td>Userid:</td>
+            <td>{{ userid }}</td>
+        </tr>
+
+        <tr>
+            <td colspan="2"> <img src="http://127.0.0.1:8000/barcode/{{ userid }}"></td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

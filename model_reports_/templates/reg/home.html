@@ -1,0 +1,15 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %}<title>HOME</title>{% endblock %}
+{% block content %}
+<h2>HOME</h2>
+<form>
+{% csrf_token %}
+{% if active %}
+    <p>{{ name }} , You are logged in</p>
+    <input type="submit" formaction="{% url 'logout' %}" value="logout">
+{% else %}
+    <input type="submit" formaction="{% url 'login' %}" value="login">
+    <input type="submit" formaction="{% url 'signup' %}" value="signup">
+</form>
+{% endif %}
+{% endblock %}

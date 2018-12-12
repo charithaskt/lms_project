@@ -1,0 +1,239 @@
+{% extends 'opac/base_generic.html' %}
+{% block extr_head %}
+    <style>
+        div.license-agreement {
+            width: 400px;
+            height: 500px;
+            overflow-y: scroll;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<h2>Sign up</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+
+            {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+        </p>
+    {% endfor %}
+
+    <div class="license-agreement">
+        <h2>Terms & Conditions</h2>
+        Library's Terms of Use, Privacy Policy, and Copyright Policy
+
+        <p style="color: blue">Terms of Use</p>
+
+        This terms of use agreement (the "Agreement") governs your use of the collection of Web pages and other digital
+        content (the "Collections") available through the Library (the "Library"). When accessing an archived page, you
+        will be presented with the terms of use agreement. If you do not agree to these terms, please do not use the
+        Library’s Collections or its Web site (the "Site").
+
+        Access to the Library’s Collections is provided at no cost to you and is granted for scholarship and research
+        purposes only. The Library, at its sole discretion, may provide you with a password to access certain
+        Collections, provided that you complete any required application process and provide accurate information in
+        your application. You may use your password only to access the Collections in ways consistent with this
+        Agreement — no other access to or use of the Site, the Collections, or the Library's services is authorized. You
+        agree not to interfere with the work of other users or Library personnel, servers, or resources. Further, you
+        agree not to recirculate your password to other people or organizations. Please report any unauthorized use of
+        your password promptly to aselib123@gmail.com. You acknowledge that you have read and understood the Library’s
+        Privacy Policy and agree that the Library may collect, use, and distribute information pursuant to that policy.
+        If you provide any content to the Library, you grant the Library a nonexclusive, royalty-free right to use that
+        content.
+
+        Some of the content available through the Library may be governed by local, national, and/or international laws
+        and regulations, and your use of such content is solely at your own risk. You agree to abide by all applicable
+        laws and regulations, including intellectual property laws, in connection with your use of the Library. In
+        particular, you certify that your use of any part of the Library's Collections will be limited to noninfringing
+        or fair use under copyright law. If a Creative Commons or other license has been declared for particular
+        material on the Library, to the extent you trust the declaration and declarer (which is rarely the Library), you
+        may use the content according to the terms and conditions of the applicable license. In using the Library's
+        site, Collections, and/or services, you further agree (a) not to violate anyone's rights of privacy, (b) not to
+        act in any way that might give rise to civil or criminal liability, (c) not to use or attempt to use another
+        person's password, (d) not to collect or store personal data about anyone, (e) not to infringe any copyright,
+        trademark, patent, or other proprietary rights of any person, (f) not to transmit or facilitate the transmission
+        of unsolicited email ("spam"), (g) not to harass, threaten, or otherwise annoy anyone, and (h) not to act in any
+        way that might be harmful to minors, including, without limitation, transmitting or facilitating the
+        transmission of child pornography, which is prohibited by federal law and may be reported to the authorities
+        should it be discovered by the Library.
+
+        You agree that we may contact you from time to time with surveys or other questions regarding your opinions
+        about and uses of the Library, as well as with information we believe may be of interest to you. We encourage
+        you to respond to these surveys because we value your input, which will assist us in improving the Library. In
+        addition, we request that, according to standard academic practice, if you use the Library's Collections for any
+        research that results in an article, a book, or other publication, you list the Library as a resource in your
+        bibliography.
+
+        While we collect publicly available Internet documents, sometimes authors and publishers express a desire for
+        their documents not to be included in the Collections (by tagging a file for robot exclusion or by contacting us
+        or the original crawler group). If the author or publisher of some part of the Library does not want his or her
+        work in our Collections, then we may remove that portion of the Collections without notice.
+
+        The Library may immediately terminate this Agreement at its sole discretion at any time upon written notice
+        (including via email) to you. Upon termination, you agree that the Library may immediately deactivate any
+        password it has issued to you and bar you from accessing the Collections or the Site.
+
+        The Library may modify this Agreement from time to time, and your continued use of the Collections and/or the
+        Site constitutes your acceptance of any and all modifications. The Library will attempt to notify you of
+        substantial modifications via the email address that you have registered with us, if any.
+
+        Because the content of the Collections comes from around the world and from many different sectors, the
+        Collections may contain information that might be deemed offensive, disturbing, pornographic, racist, sexist,
+        bizarre, misleading, fraudulent, or otherwise objectionable. The Library does not endorse or sponsor any content
+        in the Collections, nor does it guarantee or warrant that the content available in the Collections is accurate,
+        complete, noninfringing, or legally accessible in your jurisdiction, and you agree that you are solely
+        responsible for abiding by all laws and regulations that may be applicable to the viewing of the content. In
+        addition, the Collections are provided to you on an as-is and as-available basis. You agree that your use of the
+        Site and the Collections is at your sole risk. You understand and agree that the Library makes no warranty or
+        representation regarding the accuracy, currency, completeness, reliability, or usefulness of the content in the
+        Collections, that the Site or the Collections will meet your requirements, that access to the Collections will
+        be uninterrupted, timely, secure, or error free, or that defects, if any, will be corrected. We make no warranty
+        of any kind, either express or implied.
+
+        You agree to indemnify and hold harmless the Library and its parents, subsidiaries, affiliates, agents,
+        officers, directors, and employees from and against any and all liability, loss, claims, damages, costs, and/or
+        actions (including attorneys’ fees) arising from your use of the Library’s services, the site, or the
+        Collections. You agree that this Agreement is governed by California law and that any suit arising from this
+        Agreement will be brought in San Francisco, California, and you further agree that on the election and
+        reasonable notice of either party any litigation shall be referred to arbitration pursuant to the California
+        Code of Civil Procedure, §§1280 et seq. In addition, you agree that should any provision in the Agreement be
+        found invalid, unlawful, or unenforceable, that provision shall not affect the validity or enforceability of the
+        remaining provisions.
+
+        Under no circumstances, including, without limitation, negligence, shall the Library or its parents, affiliates,
+        officers, employees, or agents be responsible for any indirect, incidental, special, or consequential damages
+        arising from or in connection with the use of or the inability to use the Site or the Collections, or any
+        content contained on the Site or in the Collections, or resulting from unauthorized access to the Collections or
+        your transmissions of data, including, without limitation, damages for loss of profits, use, data, or other
+        intangibles, even if the Library has been advised of the possibility of such damages. Some jurisdictions do not
+        allow the limitation or exclusion of liability for incidental or consequential damages, so some of the above may
+        not apply to you.
+
+        This Agreement, the Privacy Policy, and other policies posted on the Site constitute the full and complete
+        agreement between you and the Library and are not intended to inure to third-party beneficiaries.
+
+        We welcome your input. Please contact us with any comments or questions at info@archive.org.
+
+        <p style="color: blue">Privacy Policy</p>
+
+        The Library (the "Library") is committed to making its constantly growing collection of Web pages and other
+        forms of digital content (the "Collections") freely available to researchers, historians, scholars, and others
+        ("Researchers") for purposes of benefit to the public. The Library offers access to some of its Collections
+        mainly by allowing Researchers to access its Unix machines. This open approach is somewhat like the situation in
+        a public library, where staff and patrons might see who else was in the library and a bit of what they were
+        working on. When Researchers using the Collections log on to the same Unix machine using different accounts,
+        some sharing of information may take place. While the Library endeavors to enforce its Terms of Use and maintain
+        standard computer security, it is important for both those who visit the site ("Visitors") and Researchers
+        (collectively, "Users") to be aware of the open nature of the Library.
+
+        The Library may make changes to this policy from time to time and will notify you of such changes by posting an
+        updated date in the Terms, Privacy, and Copyright link at the bottom the home page of the Library's Web site
+        (the "Site"). Your continued use of the Site and/or the Collections constitutes your acceptance of any changes
+        to the Privacy Policy concerning, but not limited to, both previously and prospectively collected information.
+
+        What Personal Information May the Library Have on Its Computers and Systems?
+        Because the Library uses standard Web logging in its Web servers, our Web server may automatically recognize the
+        domain name of each Visitor, each Visitor’s IP address, what Web page the Visitor requests, and the time of the
+        request, along with a variety of information supplied by the visitor’s browser. See www.microsoft.com and
+        www.netscape.com for information about the Microsoft Internet Explorer and Netscape Navigator browsers, and see
+        www.apache.org for details about Web logs.
+
+        In addition, the Library may collect the email addresses and messages of those who communicate with it via email
+        or who enter email addresses in forms.
+
+        The Library may collect personally identifying information when a Researcher registers for access to the
+        Collections, including the Researcher’s name, address, telephone number, and email address, and the Researcher’s
+        proposal for using the Collections.
+
+        The Library may use "cookies" to track Users' activities on the Site and in the Collections. Cookies are small
+        files that a server transfers to the hard drive of someone who visits a site and that the server can access when
+        the person returns to the site.
+
+        The primary sources of content for the Collections are publicly accessible Web pages that were collected and
+        donated by third parties, but the Library will expand on such sources through its own collection activities. For
+        instructions on removing a particular set of pages currently included in the Collections, please see our
+        policies and procedures for page removal.
+
+        The communications between you and the Library may pass through many machines, operating systems, programs,
+        browsers, Web servers, networks, routers, Ethernet switches, Internet service providers, proxy servers,
+        intranets, the public phone system, or other devices (collectively, "Devices") on your premises, at the Library,
+        and in between. Some of these Devices create logs of activities that are recorded on computer systems.
+
+        What Might the Library Do With the Information on Its Computers?
+        The Library has no present intention to charge for access to the Collections. The Library may transfer the
+        information on its machines, including personally identifying information, into the Collections. The Collections
+        are made available to researchers and may be made available on the Site, or provided to third parties, for any
+        use, without limitation. For instance, parts of the Collections are now in the collections of the Library of
+        Congress and the Smithsonian Institution.
+
+        Advances in data mining technology may make it possible to discover more personally identifiable information or
+        profiles in the Collections.
+
+        The Library may disclose any information it collects from Users if the Library believes in good faith that such
+        action is reasonably necessary to enforce its Terms of Use or other policies, to comply with the law, to comply
+        with legal process, to operate its systems properly, or to protect the rights or property of itself, its Users,
+        or others.
+
+        It is possible that the computers at the Library could become compromised by others and that the information on
+        the Library’s computers could be collected and disseminated without the knowledge or consent of the Library.
+        While the Library endeavors to block "crackers" from breaking into its machines, the Library is not responsible
+        or liable for any such unauthorized uses of the Library or its data.
+
+        How to Update Researcher Registration Information
+        Researchers can help the Library maintain the accuracy of their information by notifying the Library of any
+        changes in their address, title, phone number, or email address. Contact the Library by email at
+        info@archive.org to see, update, or delete your information.
+
+        <p style="color: blue">Copyright Policy</p>
+
+        The Library respects the intellectual property rights and other proprietary rights of others. The Library may,
+        in appropriate circumstances and at its discretion, remove certain content or disable access to content that
+        appears to infringe the copyright or other intellectual property rights of others. If you believe that your
+        copyright has been violated by material available through the Library, please provide the Library Copyright
+        Agent with the following information:
+
+        Identification of the copyrighted work that you claim has been infringed;
+        An exact description of where the material about which you complain is located within the Library collections;
+        Your address, telephone number, and email address;
+        A statement by you that you have a good-faith belief that the disputed use is not authorized by the copyright
+        owner, its agent, or the law;
+        A statement by you, made under penalty of perjury, that the above information in your notice is accurate and
+        that you are the owner of the copyright interest involved or are authorized to act on behalf of that owner; and
+        Your electronic or physical signature.
+        The Library Copyright Agent can be reached as follows:
+
+        Library Copyright Agent
+        Library
+        xxx,yyy,zzz
+        Phone: 9900990099
+        Email: aselib123@gmail.com
+
+        For More Information
+        If you have any questions or comments regarding these terms and policies or the Library’s data collection
+        practices, please contact the Library at aselib123@gmail.com or Library, xxx,yyy,zzz,
+        phone 9900990099.
+
+        <p><input type="checkbox" required>I have read and agree to the Terms of Use, Privacy Policy, and Copyright
+            Policy</p>
+
+    </div></br>
+    <button type="submit">Sign up</button>
+    </br></br>
+</form>
+<form>
+    {% csrf_token %}
+    {% if active %}
+            <input type="submit" formaction="{% url 'home' %}" value="home">
+        {% else %}
+            <input type="submit" formaction="{% url 'home' %}" value="home">
+            <input type="submit" formaction="{% url 'login' %}" value="login">
+        {% endif %}
+</form>
+{% endblock %}

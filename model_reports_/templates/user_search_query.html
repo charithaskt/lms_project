@@ -1,0 +1,50 @@
+{% extends 'opac/base_generic.html' %}
+{% load static %}
+{% block title %}
+  <title>DjangoQL User Model Search Form</title>
+{% endblock %}
+{% block additional_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'djangoql/css/completion.css' %}" />
+  <script src="{% static 'djangoql/js/lib/lexer.js' %}"></script>
+  <script src="{% static 'djangoql/js/completion.js' %}"></script>
+{% endblock %}
+{% block content %}
+  <h1>User Model Search Form</h1>
+  <form action="" method="get">
+    <p style="color: red">{{ error }}</p>
+    <strong>Search :</strong> 
+    <textarea name="q" cols="40" rows="1" autofocus>{{ q }}</textarea>
+  </form>
+
+  <ul>
+  {% for item in search_results %}
+    <li>{{ item.fullname }} :: {{item.email}} :: {{ item.profile.userid }} :: {{item.profile.sex}} :: {{item.timestamp_added}}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+{% block javascript %}
+  <script>
+    DjangoQL.DOMReady(function () {
+      new DjangoQL({
+        // either JS object with a result of DjangoQLSchema(MyModel).as_dict(),
+        // or an URL from which this information could be loaded asynchronously
+        introspections: {{ introspections|safe }},
+
+        // css selector for query input or HTMLElement object.
+        // It should be a textarea
+        selector: 'textarea[name=q]',
+
+        // optional, you can provide URL for Syntax Help link here.
+        // If not specified, Syntax Help link will be hidden.
+        syntaxHelp: null,
+
+        // optional, enable textarea auto-resize feature. If enabled,
+        // textarea will automatically grow its height when entered text
+        // doesn't fit, and shrink back when text is removed. The purpose
+        // of this is to see full search query without scrolling, could be
+        // helpful for really long queries.
+        autoResize: true
+      });
+    });
+  </script>
+{% endblock %}

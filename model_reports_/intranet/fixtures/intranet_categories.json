@@ -1,0 +1,58 @@
+[
+{
+    "model": "intranet.categories",
+    "pk": 1,
+    "fields": {
+        "categorycode": "HA",
+        "description": "Higher Authority"
+    }
+},
+{
+    "model": "intranet.categories",
+    "pk": 2,
+    "fields": {
+        "categorycode": "FT",
+        "description": "Facutlty Teaching"
+    }
+},
+{
+    "model": "intranet.categories",
+    "pk": 3,
+    "fields": {
+        "categorycode": "NT",
+        "description": "Non-Teaching"
+    }
+},
+{
+    "model": "intranet.categories",
+    "pk": 4,
+    "fields": {
+        "categorycode": "LS",
+        "description": "Library Staff"
+    }
+},
+{
+    "model": "intranet.categories",
+    "pk": 5,
+    "fields": {
+        "categorycode": "SU",
+        "description": "Student UG"
+    }
+},
+{
+    "model": "intranet.categories",
+    "pk": 6,
+    "fields": {
+        "categorycode": "SP",
+        "description": "Student PG"
+    }
+},
+{
+    "model": "intranet.categories",
+    "pk": 7,
+    "fields": {
+        "categorycode": "SR",
+        "description": "Student Research Scholar"
+    }
+}
+]

@@ -1,0 +1,17 @@
+{% extends 'ilsapi/ils_base.html' %}
+{% block title %} <title>My Suggestions - REST API</title>{% endblock %}
+{% block content %}
+<h1>My Suggested Books</h1>
+<ul>
+    {% for suggestion in suggestions %}
+    <li>[id-{{suggestion.suggestionid}}] {{suggestion.title}} 
+        {% if suggestion.author %}
+              - {{ suggestion.author }} 
+        {% endif %}
+        {% if suggestion.publisher %}
+              : {{suggestion.publisher}} 
+        {% endif %}
+        (Status: {{suggestion.status}})</li>
+    {% endfor %}
+</ul>
+{% endblock %}

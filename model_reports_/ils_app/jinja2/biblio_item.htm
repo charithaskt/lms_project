@@ -1,0 +1,62 @@
+{% from 'bs_tabs.htm' import bs_tabs with context %}
+{% from 'ko_grid.htm' import ko_grid with context %}
+{% from 'ko_grid_body.htm' import ko_grid_body with context %}
+{% extends 'base.htm' %}
+
+{% block main %}
+
+    {% set tabs = [] %}
+
+    {% set html %}
+    {{ ko_grid(
+        grid_options={
+            'classPath': 'App.ko.BiblioGrid',
+            'pageRoute': 'biblio_item_grid',
+        },
+        dom_attrs={
+            'id': 'biblio_item_grid'
+        }
+    ) }}
+    {% endset %}
+    {% do tabs.append({
+        'id': 'biblio_item_tab',
+        'title': 'Collection Biblio',
+        'tooltip': 'Add, modify, remove collection biblio, add related item to collection biblio',
+        'html': html,
+        'is_active': True
+    }) %}
+
+
+    {% set html %}
+    {{ ko_grid(
+        grid_options={
+            'pageRoute': 'item_grid',
+        },
+        template_args={
+            'vscroll': True
+        },
+        dom_attrs={
+            'id': 'item_grid'
+        }
+    ) }}
+    {% endset %}
+    {% do tabs.append({
+        'id': 'item_tab',
+        'title': 'Collection biblio items',
+        'tooltip': 'All the items of all collection biblios',
+        'html': html,
+    }) %}
+
+    {{ bs_tabs(tabs) }}
+
+{% do request.custom_scripts.extend([
+    'djk/js/formsets.js',
+    'djk/js/grid.js',
+    'js/biblio-grid.js',
+]) -%}
+
+{% endblock main %}
+
+{% block bottom_scripts %}
+    {{ ko_grid_body() }}
+{% endblock bottom_scripts %}

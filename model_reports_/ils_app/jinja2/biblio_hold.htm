@@ -1,0 +1,56 @@
+{% from 'bs_tabs.htm' import bs_tabs with context %}
+{% from 'ko_grid.htm' import ko_grid with context %}
+{% from 'ko_grid_body.htm' import ko_grid_body with context %}
+{% extends 'base.htm' %}
+
+{% block main %}
+
+    {% set tabs = [] %}
+
+    {% set html %}
+    {{ ko_grid(
+        grid_options={
+            'classPath': 'App.ko.BiblioGrid',
+            'pageRoute': 'biblio_hold_grid',
+        },
+        dom_attrs={
+            'id': 'biblio_hold_grid'
+        }
+    ) }}
+    {% endset %}
+    {% do tabs.append({
+        'id': 'biblio_hold_tab',
+        'title': 'Collection Biblio',
+        'tooltip': 'Add, modify, remove collection biblio, add attach holds to them',
+        'html': html,
+        'is_active': True
+    }) %}
+
+
+    {% set html %}
+    {{ ko_grid(
+        grid_options={
+            'pageRoute': 'hold_grid',
+        },
+        template_args={
+            'vscroll': True
+        },
+        dom_attrs={
+            'id': 'hold_grid'
+        }
+    ) }}
+    {% endset %}
+
+    {{ bs_tabs(tabs) }}
+
+{% do request.custom_scripts.extend([
+    'djk/js/formsets.js',
+    'djk/js/grid.js',
+    'js/biblio-grid.js',
+]) -%}
+
+{% endblock main %}
+
+{% block bottom_scripts %}
+    {{ ko_grid_body() }}
+{% endblock bottom_scripts %}

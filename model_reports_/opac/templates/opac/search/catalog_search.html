@@ -1,0 +1,116 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %}<title>DjangoQL - Search Library Catalog</title> {% endblock %}
+{% block extra_head %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'djangoql/css/completion.css' %}" />
+{% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <style>
+  .glyphicon {
+    font-size: 30px;
+    margin: 5px;
+    padding: 10px;
+  }
+  .search-box {
+    background-color: lightgrey;
+    color: afbdce; 
+  }
+  </style>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+{% load static %}
+  <script src="{% static 'djangoql/js/lib/lexer.js' %}"></script>
+  <script src="{% static 'djangoql/js/completion.js' %}"></script>
+{% load static %}
+  <script>
+  	$(document).ready(function() {
+    		$('#example').DataTable();
+	} );
+  </script>
+{% endblock %}
+{% block content %}
+  <h1>Search Library Catalog</h1>
+  {% csrf_token %}
+  <form action="" method="get">
+    <p style="color: red">{{ error }}</p>
+   <div>
+<span class="glyphicon glyphicon-search"></span><strong><font size="4"><textarea class="search-box" name="q" cols="40" rows="50" placeholder="Click me to perform field level boolean search."  autofocus>{{ q }}</textarea></strong></font>
+   </div>
+  </form>
+  <div> 
+  <table id="example" class="display" style="width:100%; background-color:#acbdce;">
+  <thead>
+    <tr>
+        <th>Item Type</th>
+        <th>Title</th>
+        <th>Author(s)</th>
+        <th>Publisher</th>
+        <th>Subject Headings</th>
+        <th align="center">Copyright Year</th>
+        <th>Copies</th>
+        <th>Cover Image</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- {% for item in search_results %} -->
+    <tr>
+       <td align="center">[{{ item.itemtype }}]</td>
+       <td>{{ item.title }}</td>
+       <td>{{ item.author_names}}</td>
+       <td>{{ item.publisher.name}}</td>
+       <td>{{ item.subject_headings}}</td>
+       <td align="center">{{ item.copyrightdate }}</td>
+       <td align="center">{{ item.copies }}</td>
+       <td>
+       <!-- {% if item.coverimage %} -->
+            <img src="/media/{{item.coverimage.imageurl}}" width="100" height="120" />
+       <!-- {% else %} -->
+            <img src="https://images-na.ssl-images-amazon.com/images/P/{{item.isbn}}.01.TZZZZZZZ.jpg" width="100" height"120" />
+       <!-- {% endif %} -->
+       </td>     
+    </tr>
+  <!-- {% endfor %} -->
+  </tbody>
+  <tfoot>
+    <tr>
+        <th>Item Type</th> 
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Subject Headings</th>
+        <th>Copyright Year</th>
+        <th>Copies</th>
+        <th>Cover Image</th>
+       
+    </tr>
+  </tfoot>
+  </table>
+  </div>
+ {% endblock %}
+ {% block javascript %}
+  <script>
+    DjangoQL.DOMReady(function () {
+      new DjangoQL({
+        // either JS object with a result of DjangoQLSchema(MyModel).as_dict(),
+        // or an URL from which this information could be loaded asynchronously
+        introspections: {{ introspections|safe }},
+
+        // css selector for query input or HTMLElement object.
+        // It should be a textarea
+        selector: 'textarea[name=q]',
+
+        // optional, you can provide URL for Syntax Help link here.
+        // If not specified, Syntax Help link will be hidden.
+        syntaxHelp: null,
+
+        // optional, enable textarea auto-resize feature. If enabled,
+        // textarea will automatically grow its height when entered text
+        // doesn't fit, and shrink back when text is removed. The purpose
+        // of this is to see full search query without scrolling, could be
+        // helpful for really long queries.
+        autoResize: true
+      });
+    });
+  </script>
+{% endblock %}

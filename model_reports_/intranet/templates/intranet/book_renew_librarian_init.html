@@ -1,0 +1,11 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>Renewal Process</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {% if message %}<p class='text-danger'>{{ message }}</p>{% endif %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

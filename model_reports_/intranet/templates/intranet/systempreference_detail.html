@@ -1,0 +1,26 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+    <h1>Preference Variable: {{ preference.variable }}</h1>
+    <table>
+    {% if preference.value %}
+      <tr>
+      <td><strong>Value:</strong></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{preference.value}}</td>
+      </tr>
+    {% endif %}
+    {% if preference.descriptive_options %}
+      <tr>
+      <td><strong>Descriptive options:</strong></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{preference.descriptive_options}}</td>
+      </tr>
+    {% endif %}    
+    {% if preference.explanation %}
+      <tr>
+      <td><strong>Explanation:</strong></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{ preference.explanation }}</td>
+      </tr>
+    {% endif %}
+    {% if preference.vartype %}
+      <tr>
+      <td><strong>Variable Type:</strong></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{ preference.vartype }}</td>
+      </tr>
+    {% endif %}
+{% endblock %}

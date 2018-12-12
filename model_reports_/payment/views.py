@@ -1,0 +1,78 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+#from custom_user_model import settings
+from model_reports import settings
+from payment import Checksum
+from payment.Checksum import generate_checksum, verify_checksum, generate_checksum_by_str, verify_checksum_by_str
+from intranet import models
+from intranet.models import Borrowers
+from payment.models import PaytmHistory
+from django.urls import reverse
+def pay(request):
+
+    merchantMid = settings.PAYTM_MERCHANT_ID
+    merchantKey = settings.PAYTM_MERCHANT_KEY
+    order_id = Checksum.__id_generator__()
+    channelId = 'WEB'
+    #custId = request.POST['cnumber']
+    custId = "abcdef"
+    #txnAmount = request.POST['fine']
+    txnAmount = 5.0
+
+    #custId = "fds"
+    #txnAmount = '43'
+
+    website = 'WEBSTAGING'
+    industryTypeId = 'Retail'
+    callbackUrl = reverse('check')
+
+    paytmParams = {
+        'MID': merchantMid,
+        'ORDER_ID': order_id,
+        'CUST_ID': custId,
+        'INDUSTRY_TYPE_ID': industryTypeId,
+        'CHANNEL_ID':channelId,
+        'TXN_AMOUNT': txnAmount,
+        'WEBSITE':website,
+        'CALLBACK_URL': callbackUrl,
+    }
+    paytmChecksum = generate_checksum(paytmParams, merchantKey)
+    paytmParams['CHECKSUMHASH'] = paytmChecksum
+    context = {'paytmDict': paytmParams}
+    return render(request, 'payment/form1.html', context)
+
+@csrf_exempt
+def check(request):
+    merchantKey = settings.PAYTM_MERCHANT_KEY
+    if request.method == 'POST':
+        data_dict = {}
+        for key in request.POST:
+            data_dict[key] = request.POST[key]
+        if 'CHECKSUMHASH' in data_dict.keys():
+            paytmChecksum = request.POST['CHECKSUMHASH']
+        else:
+            paytmChecksum = ""
+
+        isValidChecksum = verify_checksum(data_dict, merchantKey, paytmChecksum)
+        context = {'paytmDict': data_dict}
+        if (isValidChecksum):
+            PaytmHistory.objects.create(**data_dict)
+            return render(request, 'payment/form2.html', context)
+        else:
+            return HttpResponse("Checksum verify failed")
+    else:
+        return HttpResponse(status= 200)
+
+
+def status(request):
+    data_dict = {}
+    for key in request.POST:
+        data_dict[key] = request.POST[key]
+    print(data_dict)
+    context = {'resultDict': data_dict}
+    return render(request, 'payment/status.html', context )
+
+
+def pay_fine(request):
+    return render(request, 'payment/pay_fine.html')

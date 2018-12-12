@@ -1,0 +1,35 @@
+{% extends 'ABSC/base.html' %}
+{% block banner %}
+<div class="banner" id="library_banner_slide">
+    <ul>
+        <li class="library_banner_slide_01">
+            <div class="slide_caption">
+            	<h1>A library is not a luxury but one of the necessities of life.</h1>
+            	<p> - Henry Ward Beecher</p>
+            </div>
+        </li>
+        <li class="library_banner_slide_02">
+            <div class="slide_caption">
+                <h1>If you have a garden and a library, you have everything you need.</h1>
+                <p> - Marcus Tullius Cicero</p>
+            </div>
+        </li>
+        <li class="library_banner_slide_03">
+            <div class="slide_caption">
+                <h1>The library is the temple of learning, and learning has liberated more people than all the wars in history.</h1>
+                <p> - Carl T.Rowan</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="library_mobile_menu">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="#library_banner_slide"><i class="glyphicon glyphicon-home"></i> &nbsp; Home</a></li>
+            <li><a href="{% url 'catalog-search' %}" class="external-link"><i class="glyphicon glyphicon-home"></i> &nbsp; Home</a></li>
+            <li><a href="{% url 'login' %}" class="external-link"><i class="glyphicon glyphicon-user"></i> &nbsp; LogIn</a></li>
+            <li><a rel="nofollow" href="{% url 'signup' %}" class="external-link"><i class="glyphicon glyphicon-user-plus"></i> &nbsp; SignUp</a></li>
+            <li><a href="#library_contact"><i class="glyphicon glyphicon-phone-alt"></i> &nbsp; Contact</a></li>
+        <li><a href="{% url 'catalog-search' %}" class="external-link"><i class="glyphicon glyphicon-search"></i> &nbsp; Search</a></li>
+        </ul>
+</div>
+{% endblock %}

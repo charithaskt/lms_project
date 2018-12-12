@@ -1,0 +1,108 @@
+{% from 'ko_grid.htm' import ko_grid with context %}
+{% from 'ko_grid_body.htm' import ko_grid_body with context %}
+{% extends 'base.htm' %}
+
+{% block main %}
+    {#
+        'separateMeta' is required because Django grid specifies 'active_choices' field filter value.
+    #}
+    {#
+        Overwrites templates for custom display of HoldGrid.
+    #}
+    {{ ko_grid(
+        grid_options={
+            'pageRoute': view.request.url_name,
+            'separateMeta': True,
+        },
+        template_args={
+            'vscroll': True,
+        },
+        dom_attrs={
+            'id': 'hold_grid',
+            'data-template-options': {
+                'templates': {
+                    'ko_grid_body': 'hold_ko_grid_body',
+                    'hold_ko_grid_nav': 'ko_grid_nav',
+                    'ko_grid_filter_choices': 'hold_ko_grid_filter_choices',
+                }
+            },
+        }
+    ) }}
+
+{% do request.custom_scripts.extend([
+    'djk/js/grid.js',
+    'js/hold-grid.js',
+]) -%}
+
+{% endblock main %}
+
+{% block bottom_scripts %}
+    {# Generate standard grid templates for KoGridWidget #}
+    {{ ko_grid_body() }}
+
+    <script type="text/template" id="hold_ko_grid_body">
+        <panel-primary>
+            <panel-heading data-bind="text: meta.verboseNamePlural"></panel-heading>
+            <panel-body>
+                <!-- ko if: meta.hasSearch() || gridFilters().length > 0 -->
+                <tpl t-id="hold_ko_grid_nav"></tpl>
+                <!-- /ko -->
+                <tpl t-id="ko_grid_table"></tpl>
+                <div class="default-padding">
+                    <button
+                            data-bind="click: onChangeActivation.bind($data)" type="button" class="btn btn-warning">
+                        Change activation
+                    </button>
+                </div>
+                <!-- Nested components isolation -->
+                <div class="component">
+                    <!-- Should display OK, not binding to the outer component. -->
+                    Rows displayed: <span data-bind="text: gridRows().length">OK</span>
+                </div>
+                <panel-success>
+                    <panel-heading>
+                        <panel-title>
+                        Nested component (inner datatable inside outer datatable)
+                        </panel-title>
+                    </panel-heading>
+                    <panel-body>
+                        {{ ko_grid(
+                            grid_options={
+                                'pageRoute': 'action_grid',
+                            },
+                            dom_attrs={
+                                'id': 'action_grid',
+                                'data-template-args-nesting': False,
+                                'data-template-options': {
+                                    'templates': {
+                                        'ko_grid_body': 'ko_grid_body',
+                                        'ko_grid_filter_choices': 'ko_grid_filter_choices',
+                                    }
+                                },
+                            },
+                        ) }}
+                    </panel-body>
+                </panel-success>
+            </panel-body>
+            <tpl t-id="ko_grid_pagination"></tpl>
+        </panel-primary>
+    </script>
+
+    <script type="text/template" id="hold_ko_grid_filter_choices">
+        <li data-bind="grid_filter">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header"><a class="navbar-brand" href="##" data-bind="text: name"></a></div>
+                    <ul class="nav navbar-nav">
+                        <!-- ko foreach: choices -->
+                        <li data-bind="css: {active: is_active()}">
+                            <a data-bind="css: {bold: is_active()}, text: name, grid_filter_choice, click: onLoadFilter.bind($data)" name="#"></a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                </div>
+            </nav>
+        </li>
+    </script>
+
+{% endblock bottom_scripts %}

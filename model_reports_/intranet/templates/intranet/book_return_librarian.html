@@ -1,0 +1,15 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>Return: {{ book_instance.item.biblionumber.title }}</h1>
+  <p>Borrower: {{ book_instance.borrower }}</p>
+  <p {% if is_overdue %} class="text-danger"{% endif %}>Due date: {{ book_instance.date_due|date:"D, d M, Y" }}</p>
+  {% if is_fine %}<p class="text-danger">Overdue Fine: Rs.{{ fineamount }}/-</p>{% endif %}  
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>Confirm Return?</p>
+    <input type="submit" class='btn btn-success' value="Return">
+    <a href="{% url 'return-book-librarian-init' %}" class='btn btn-danger' style="{'padding':0}" >Cancel</a>
+  </form>
+{% endblock %}
+

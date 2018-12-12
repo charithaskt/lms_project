@@ -1,0 +1,15 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>Fine Collection:</h1>
+  <p><strong>Borrower:</strong> {{ borrower }}</p>
+  <p><strong>Outstanding Fine Amount:  Rs.</strong> {{ account.amountoutstanding }} </p>
+  <p><strong>Fine Amount Being Paid: Rs. </strong>{{ fine }}</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <p><strong>Confirm Payment?</strong></p>
+    <input type="submit" class='btn btn-success' value="Procced?">
+    <a href="{% url 'fine-collect-librarian-init' %}" class='btn btn-danger' style="{'padding':0}" >Cancel</a>
+  </form>
+{% endblock %}
+

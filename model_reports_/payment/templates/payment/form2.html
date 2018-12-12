@@ -1,0 +1,28 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %}
+    <title>Paytm Secure Online Payment Gateway</title>
+{% endblock %}
+{% block content %}
+
+<table align='center'>
+    <tr>
+        <td><strong>Transaction is being processed,</strong></td>
+    </tr>
+    <tr>
+        <td><font color='blue'>Please wait ...</font></td>
+    </tr>
+    <tr>
+        <td>(Please do not press 'Refresh' or 'Back' button</td>
+    </tr>
+</table>
+
+
+<form name='TESTFORM' action="{% url 'status' %}"  method='POST'>{% csrf_token %}
+    {% for key,value in paytmDict.items %}
+        <input type='hidden' name='{{key}}' value='{{ value }}'><br>
+    {% endfor %}
+</form>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript">  document.forms[0].submit();</script>
+{% endblock %}

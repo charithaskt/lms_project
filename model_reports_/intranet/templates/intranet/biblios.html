@@ -1,0 +1,15 @@
+{% extends 'opac/base_generic.html' %}
+{% load render_table from django_tables2 %}
+{% load static %}
+    {% block title %}
+        <title>List of biblios</title>
+    {% endblock %}
+    {% block additional_css %}    
+        <!-- Latest compiled and minified CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>.
+    {% endblock %}
+    {% block content %}
+        {% render_table table %}
+    {% endblock %}

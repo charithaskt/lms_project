@@ -1,0 +1,31 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>System Preferences List</h1>
+  {% if systempreferences_list %}
+  <ul>
+    {% for preference in systempreferences_list %}
+      <li>
+        <strong>Preference ({{preference.vartype}}):&nbsp;&nbsp;&nbsp;&nbsp;</strong> <a href="{{ preference.get_absolute_url }}">{{ preference.variable }}</a> 
+          <table>
+          <tr>
+          {%if preference.value %} 
+          <td><strong>Value:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td><td>{{preference.value}}
+          ({{preference.options}})</td>
+          </tr>
+          <tr>
+          <td><strong>Descriptive Options:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td><td>{{preference.descriptive_options}}</td>
+          </tr>
+          <tr>
+          <td><strong>Explanation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td><td>{{preference.explanation}}</td>
+          </tr>
+          </table>
+          {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no system preferences to display.</p>
+  {% endif %}       
+{% endblock %}
+

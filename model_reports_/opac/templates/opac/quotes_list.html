@@ -1,0 +1,16 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h2>List of Quotations</h2>
+  {% if quotations_list %}
+  <ul>
+    {% for quote in quotations_list %}
+      <li>
+       <a href="{{ quote.get_absolute_url }}"> <strong>{{ quote.source }}</em></a> </strong>  :-  </b> {{ quote.text }} <p>(Added On: {{quote.timestamp }})</p>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no quotations collected so far.</p>
+  {% endif %}       
+{% endblock %}

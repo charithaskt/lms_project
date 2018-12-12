@@ -1,0 +1,21 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h1>Issue/Renewal:</h1>
+  <p><strong>Item:</strong> {{ item_instance.biblionumber.title }} </p>
+  <p><strong>Borrower:</strong> {{ borrower_instance }}</p>
+   {% if renewal %}
+     <p class="text-danger"><strong>Renewal Due date :</strong> {{ date_due }}</p>
+   {% elif held_self %}
+       <p class="text-success">Reservation Filled</p>
+   {% else %}
+         <p class="text-success"><strong>Due date : </strong>{{ date_due }}</p>  
+   {% endif %}   
+  <form action="" method="post">
+    {% csrf_token %}
+    <p><strong>Confirm Issue?</strong></p>
+    <input type="submit" class='btn btn-success' value="Issue/Renew">
+    <a href="{% url 'issue-item-librarian-init' %}" class='btn btn-danger' style="{'padding':0}" >Cancel</a>
+  </form>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% from 'ko_grid.htm' import ko_grid with context %}
+{% from 'ko_grid_body.htm' import ko_grid_body with context %}
+{% extends 'base.htm' %}
+
+{% block main %}
+
+    {{ ko_grid(
+        grid_options={
+            'classPath': 'App.ko.BiblioGrid',
+            'pageRoute': 'biblio_grid_with_action_logging',
+            'defaultOrderBy': {'itemtype':'','title': ''},
+        },
+        dom_attrs={
+            'id': 'biblio_grid'
+        }
+    ) }}
+
+    {{ ko_grid(
+        grid_options={
+            'pageRoute': 'action_grid',
+        },
+        template_args={
+            'vscroll': True
+        },
+        dom_attrs={
+            'id': 'action_grid'
+        }
+    ) }}
+
+{% do request.custom_scripts.extend([
+    'djk/js/formsets.js',
+    'djk/js/grid.js',
+    'js/biblio-grid.js',
+]) -%}
+
+{% endblock main %}
+
+{% block bottom_scripts %}
+    {{ ko_grid_body() }}
+{% endblock bottom_scripts %}

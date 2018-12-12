@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>ILMS</title>
+    {% endblock %}
+   {% load static %}
+    <link rel="shortcut icon" href="{% static 'ASE/favicon.png' %}" />		
+    <link href="{% static 'ASE/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ASE/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ASE/css/lib_style.css' %}" rel="stylesheet">
+    <link href="{% static 'ASE/css/camera.css' %}" rel="stylesheet">
+   {% load static %}
+  </head>
+<body>
+<div class="banner" id="lib_banner_slide">
+    <ul>
+        <li class="lib_banner_slide_01">
+            <div class="slide_caption">
+                <h1>Quote Of The Day</h1>
+                <p>"Bad libraries build collections, good libraries build services, great libraries build communities."</p>
+            </div>
+        </li>
+        <li class="lib_banner_slide_02">
+            <div class="slide_caption">
+                <h1>Quote Of The Day</h1>
+                <p>"An original idea. That can’t be too hard. The library must be full of them."</p>
+            </div>
+        </li>
+        <li class="lib_banner_slide_03">
+            <div class="slide_caption">
+                <h1>Quote Of The Day</h1>
+                <p>"To build up a library is to create a life. It’s never just a random collection of books."</p>
+            </div>
+        </li>
+    </ul>
+</div>
+{% block content %}
+{% endblock %}
+{% block sidebar %}
+<div id="lib_mobile_menu">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="#lib_banner_slide"><i class="glyphicon glyphicon-home"></i> &nbsp; Home</a></li>
+            <li><a href="#lib_about"><i class="glyphicon glyphicon-briefcase"></i> &nbsp; About</a></li>
+            <li><a href="#lib_events"><i class="glyphicon glyphicon-bullhorn"></i> &nbsp; Events</a></li>
+            <li><a href="#lib_timeline"><i class="glyphicon glyphicon-calendar"></i> &nbsp; Timeline</a></li>
+            <li><a rel="nofollow" href="http://www.google.com" class="external-link"><i class="glyphicon glyphicon-export"></i> &nbsp; External</a></li>
+            <li><a href="#lib_contact"><i class="glyphicon glyphicon-phone-alt"></i> &nbsp; Contact</a></li>
+        </ul>
+</div>
+{% endblock %}
+<div class="container_wapper">
+    <div id="lib_banner_menu">
+        <div class="container-fluid">
+            <div class="col-xs-4 lib_logo">
+                {% load static %}
+            	<a href="#">
+                	<img src="{% static 'ASE/favicon.png' %}" id="logo_img" />
+                	<h1 id="logo_text">ILMS<span></span></h1>
+                </a>
+                {% load static %}
+            </div>
+            <form class="form-inline mr-auto" style="padding:10px;margin:5px;float:left" >
+                    <input class="form-control mr-sm-0" type="text" placeholder="Search" style="height: 50px;">
+                    <!--<button class="btn btn-light" type="submit"style="background-color:white;color:orange">Search</button>-->
+            </form>
+            <div class="col-sm-6 hidden-xs" style="float:right">
+                <ul class="nav nav-justified">
+                    <li><a href="#lib_banner_slide">Home</a></li>
+                    <li><a href="#lib_about">Options</a></li>
+                    <li><a href="#lib_about">Books</a></li>
+                    <li><a href="{% url 'books' %}">Books_1</a></li>
+                    <li><a href="http://localhost:8000/">Books2</a></li>
+                    <li><a href="#lib_signup">SignUp</a></li>
+                    <li><a href="#lib_contact">Contact</a></li>
+                    <li><button class="btn btn1 navbar-btn " onclick="login.html">SignIn</button></li>
+                 </ul>
+            </div>
+            <div class="col-xs-8 visible-xs">
+                <a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="lib_about" class="container_wapper">
+    <div class="container-fluid">
+        <h1>Options</h1>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap mission"><i class="fa fa-tags"></i></div>
+            <h2>View Tags</h2>
+            <p>Classify books based on tags.</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap product"><i class="fa fa-search"></i></div>
+            <h2>Recent Comments</h2>
+            <p>Latest comments on books.</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap testimonial"><i class="fa fa-list-ul"></i></div>
+            <h2>Purchase Suggestions</h2>
+            <p>Suggestions based on patron data.</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap statistic"><i class="fa fa-book"></i></div>
+            <h2>Course Reserves</h2>
+            <p>Course wise popular selections.</p>
+        </div>
+    <div id="lib_events" class="container_wapper">
+    <div class="container-fluid">
+        <h1>Trending Books</h1>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_left">
+                <div class="event_box_img">
+                {% load static %}
+                    <img src="{% static 'ASE/images/bookcovers/36949995.jpg' %}" class="img-responsive" alt="Web Design Trends" />
+                {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>Boneless Mercies</h1>
+                    <p>April Geneviene Tucholke</p>
+                    <p>A dark standalone YA fantasy about a band of mercenary girls in search of female glory. Frey, Ovie, Juniper, and Runa are the Boneless Mercies—girls hired to kill quickly, quietly, and mercifully. But Frey is weary of the death trade and, having been raised on the heroic sagas of her people, dreams</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_right">
+                <div class="event_box_img">
+                {% load static %}
+                    <img src="{% static 'ASE/images/bookcovers/36670752.jpg' %}" class="img-responsive" alt="Free Bootstrap Seminar" />
+                {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>Marilla Of Green Gables</h1>
+                    <p>Sarah McCoy</p>
+                    <p>A bold, heartfelt tale of life at Green Gables . . . before Anne: A marvelously entertaining and moving historical novel, set in rural Prince Edward Island in the nineteenth century, that imagines the young life of spinster Marilla Cuthbert, and the choices that will open her life to the possibility ..</p>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_left">
+                {% load static %}
+                <div class="event_box_img">
+                    <img src="{% static 'ASE/images/bookcovers/36952596.jpg' %}" class="img-responsive" alt="" />
+                {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>Blanca And Roja</h1>
+                    <P>Anna Marie McLemore</P>
+                    <p>The biggest lie of all is the story you think you already know. The del Cisne girls have never just been sisters; they’re also rivals, Blanca as obedient and graceful as Roja is vicious and manipulative. They know that, because of a generations-old spell, their family is bound to a bevy of swans dee ..</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_right">
+                <div class="event_box_img">
+                {% load static %}
+                    <img src="{% static 'ASE/images/bookcovers/37007910.jpg' %}" class="img-responsive" alt="" />
+                {% load static %>
+                </div>
+                <div class="event_box_caption">
+                    <h1>The Witch of Willow Hall</h1>
+                    <p>Hester Fox</p>
+                    <p>Two centuries after the Salem witch trials, there’s still one witch left in Massachusetts. But she doesn’t even know it. Take this as a warning: if you are not able or willing to control yourself, it will not only be you who suffers the consequences but those around you, as well. New Oldbury, 1821 I ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="lib_signup" class="container_wapper">
+    <div class="container-fluid">    
+            <h1>SIGN UP</h1>
+            <form action="#" method="post" class="col-md-8">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                   <input type="text" name="fname" id="fname" placeholder="Your First Name" />
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="lname" id="lname" placeholder="Your Last Name" />
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <input type="text" name="email" id="email" placeholder="Your Email ID" />
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <input type="text" name="password" id="password" placeholder="Password" />
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <input type="text" name="cpassword" id="cpassword" placeholder="Confirm Password" />
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-offset-3">
+                    <button class="btn btn-dark" type="submit">Submit</button>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <button class="btn btn-dark"type="reset">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="lib_contact" class="container_wapper">
+    <div class="container-fluid">
+        <h1>Contact</h1>
+        
+        <div class="col-md-4">
+            <h2>Contact Info.</h2>
+            <p>For more details,you can contact with given address or given contact number,or you can mail to ils.</p>
+            <br>
+            <p><strong>Email:</strong> ils@gmail.com<br /><strong>Phone:</strong> 9876543210<br /><strong>Website:</strong> www.ils.com<br /><strong>Address:</strong> Srictiy,tada,Andhra Pradesh</p>
+            <ul class="list-inline social-link">
+                <li>
+                    <a href="#"><i class="fa fa-linkedin"></i></a> 
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-twitter"></i></a> 
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-facebook"></i></a> 
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-youtube"></i></a> 
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-github"></i></a> 
+                </li>
+           </ul>
+        </div>
+        <form action="#" method="post" class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                <h2>Send Enquiry</h2>
+                </div>
+                <div class="col-md-6">
+                    <p>Name</p>
+                    <input type="text" name="name" id="name" placeholder="Your Name" />
+                </div>
+                <div class="col-md-6">
+                    <p>Email</p>
+                    <input type="text" name="email" id="email" placeholder="Your Email" />
+                </div>
+                <div class="col-md-12">
+                    <p>Subject</p>
+                    <input type="text" name="subject" id="subject" placeholder="Subject" />
+                </div>
+                <div class="col-md-12">
+                    <p>Message</p>
+                    <textarea name="message" id="message"  placeholder="Write your message here..."></textarea>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-offset-6">
+                    <button type="submit">Send</button>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <button type="reset">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="lib_footer">
+    <div>
+        <p id="footer">Copyright &copy; 2018 Integrated Library Management System</p>
+    </div>
+</div>
+ {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<script src="{% static 'ASE/js/jquery.min.js' %}"></script>
+<script src="{% static 'ASE/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'ASE/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'ASE/js/jquery.singlePageNav.min.js' %}"></script>
+<script src="{% static 'ASE/js/unslider.min.js' %}"></script>
+{% load static %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+{% load static %}
+<script src="{% static 'ASE/js/lib_script.js' %}"></script>
+{% load static %}
+</body>
+</html>
+

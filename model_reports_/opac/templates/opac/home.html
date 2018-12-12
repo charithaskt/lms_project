@@ -1,0 +1,21 @@
+{% extends "opac/base_generic.html" %}
+{% block title %} <title>My Library Home Page</title> {% endblock %} 
+{% block content %}
+  <h1 style="color:red;">My Library Home</h1>
+  <p style="color:brown;">Welcome to MyLibrary, a website developed by <em>Charitha, Sreeja, Ajay, Abhishek, Harinam & Kushagra</em>!</p>
+
+  <h3 style="color:red;">Quote of the Day: </h3>
+  <p style="color:blue;"><b>{{quote.source}}</b> :- <strong>{{quote.text}}</strong></p>
+  <div style="color:green;">
+  <p><strong>The library has the following record counts:</strong></p>
+  <ul>
+    <li><strong>Books (Titles):</strong> {{ num_books_titles }}</li>
+    <li><strong>Books (Volumes):</strong> {{ num_books_volumes }}</li>
+    <li><strong>Books Copies Available:</strong> {{ num_books_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Publishers:</strong> {{ num_publishers }}</li>
+    <li><strong>Genres:</strong> {{ num_genres }}</li>
+  </ul>
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+  </div>
+{% endblock %}

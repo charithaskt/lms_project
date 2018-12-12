@@ -1,0 +1,26 @@
+{% from 'ko_grid.htm' import ko_grid with context %}
+{% from 'ko_grid_body.htm' import ko_grid_body with context %}
+{% extends 'base.htm' %}
+
+{% block main %}
+
+{# 'pageRouteKwargsKeys' is used by BiblioReserveGrid to filter queryset in get_base_queryset() #}
+{{
+ko_grid(
+    grid_options={
+        'pageRoute': view.request.url_name,
+        'pageRouteKwargsKeys': ['biblio_id'],
+    }
+)
+}}
+
+{% do request.custom_scripts.extend([
+    'djk/js/grid.js',
+    'js/reserve-grid.js',
+]) -%}
+
+{% endblock main %}
+
+{% block bottom_scripts %}
+    {{ ko_grid_body() }}
+{% endblock bottom_scripts %}

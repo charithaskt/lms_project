@@ -1,0 +1,12 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+{% block content %}
+{% if resultDict.STATUS == 'TXN_SUCCESS' %}
+    <h2> Transaction Success</h2>
+{% else %}
+    <h2>{{ resultDict.STATUS }}</h2>
+{% endif %}
+<a href="http://127.0.0.1:8000/">Go to Home Page</a>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %}<title>DjangoQL - Search Library Visitors' Record</title> {% endblock %}
+{% block extra_head %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'djangoql/css/completion.css' %}" />
+{% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <style>
+  .glyphicon {
+    font-size: 30px;
+    margin: 5px;
+    padding: 10px;
+  }
+  .search-box {
+    background-color: lightgrey;
+    color: afbdce; 
+  }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+{% load static %}
+  <script src="{% static 'djangoql/js/lib/lexer.js' %}"></script>
+  <script src="{% static 'djangoql/js/completion.js' %}"></script>
+{% load static %}
+  <script>
+  	$(document).ready(function() {
+    		$('#example').DataTable();
+	} );
+  </script>
+  
+  
+{% endblock %}
+{% block content %}
+    <h1>Visitors' Login Logout</h1>
+  <div class='col-9 offset-md-3'>
+    <form class='my-ajax-form' method='POST'>
+    
+    <strong>Cardnumber: </strong><input type="text" name="cardnumber" placeholder="Enter Library Cardnumber"/>    
+    <input class='btn btn-default' type='submit' value='Submit' />
+    <!-- <button type='submit'>Submit</button>-->
+    </form>
+  </div>
+  <div> 
+
+  <table id="example" class="display" style="width:100%; background-color:#acbdce;">
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Visitor's Name</th>
+        <th>Card Number</th>
+        <th>Category</th>
+        <th>Department</th>
+        <th align="center">Designation</th>
+        <th>Time of Entry</th>
+        <th>Time of Exit</th>
+        <th>Time Spent</th>
+        <!-- <th>Photo</th> -->
+    </tr>
+  </thead>
+  <tbody>
+  <!-- {% for item in search_results %} -->
+    <tr>
+       <td align="center">{{item.id}}</td>
+       <td>{{ item.borrower.title }} {{ item.borrower.firstname}} {{ item.borrower.surname}}</td>
+       <td>{{ item.cardnumber }}</td>
+       <td>{{ item.borrower.category.description}}</td>
+       <td>{{ item.borrower.department.description}}</td>
+       <td align="center">{{ item.borrower.designation.description }}</td>
+       <td align="center">{{ item.timeofentry|time:"H:i s"}}</td>
+       <td align="center">{{ item.timeofexit|time:"H:i s"}}</td> 
+       <td align="center"> {{ item.timespent }}</td>
+    </tr>
+  <!-- {% endfor %} -->
+  </tbody>
+  <tfoot>
+    <tr>
+        <th>ID</th> 
+        <th>Visitor's Name</th>
+        <th>Card Number</th>
+        <th>Category</th>
+        <th>Department</th>
+        <th align="center">Designation</th>
+        <th>Time of Entry</th>
+        <th>Time of Exit</th>       
+        <th>Time Spent</th>    
+        <!-- <th>Photo</th> -->  
+    </tr>
+  </tfoot>
+  </table>
+  </div>
+ {% endblock %}
+  
+
+{% block javascript %}
+<script>
+   
+  DjangoQL.DOMReady(function () {
+      new DjangoQL({
+        // either JS object with a result of DjangoQLSchema(MyModel).as_dict(),
+        // or an URL from which this information could be loaded asynchronously
+        introspections: {{ introspections|safe }},
+
+        // css selector for query input or HTMLElement object.
+        // It should be a textarea
+        selector: 'textarea[name=q]',
+
+        // optional, you can provide URL for Syntax Help link here.
+        // If not specified, Syntax Help link will be hidden.
+        syntaxHelp: null,
+
+        // optional, enable textarea auto-resize feature. If enabled,
+        // textarea will automatically grow its height when entered text
+        // doesn't fit, and shrink back when text is removed. The purpose
+        // of this is to see full search query without scrolling, could be
+        // helpful for really long queries.
+        autoResize: true
+      });
+    });
+  </script>
+{% endblock %}

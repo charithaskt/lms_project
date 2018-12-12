@@ -1,0 +1,97 @@
+{% if client_conf.userId != 0 %}
+    
+    <li>
+        <a href="{{ url('biblio_create') }}">
+            {{ _('Add collection biblio') }}
+        </a>
+    </li>
+    
+    <li>
+        <a href="{{ url('biblio_create_dtl') }}">
+            {{ _('Add collection biblio (Django Template Language)') }}
+        </a>
+    </li>
+   
+
+{% else %}
+    <li>
+        <a href="{{ url('login') }}">
+            {{ _('Sign In') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('signup') }}">
+            {{ _('Sign Up') }}
+        </a>
+    </li>
+{% endif %}
+    <li>
+        <a href="{{ url('action_list') }}">
+            {{ _('Log of performed actions') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('action_grid', action='') }}">
+            {{ _('Grid with performed actions') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_list') }}">
+            {{ _('List of collection biblios') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_list_with_component') }}">
+            {{ _('List of collection biblios with the holds in-line') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_list_dtl') }}">
+            {{ _('List of collection biblios (Django Template Language)') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_grid_simple', action='') }}">
+            {{ _('Simple biblio grid') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_grid_simple_dtl', action='') }}">
+            {{ _('Simple biblio grid (Django Template Language)') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_grid_editable', action='') }}">
+            {{ _('Editable biblio grid') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_grid_raw_query', action='') }}">
+            {{ _('Biblio grid raw query') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_grid_with_virtual_field', action='') }}">
+            {{ _('Biblio grid with virtual field') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_grid_with_action_logging', action='') }}">
+            {{ _('Biblio grid with action logging') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_item_grid', action='') }}">
+            {{ _('Biblio grid with Item grid interaction') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('biblio_hold_grid', action='') }}">
+            {{ _('Biblio grid with Hold grid interaction') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('borrowers_grid_editable', action='') }}">
+            {{ _('Editable borrowers grid') }}
+        </a>
+    </li>

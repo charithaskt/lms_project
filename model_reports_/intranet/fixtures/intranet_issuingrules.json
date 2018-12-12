@@ -1,0 +1,121 @@
+[
+{
+    "model": "intranet.issuingrules",
+    "pk": 1,
+    "fields": {
+        "categorycode": 1,
+        "itemtype": "BK",
+        "maxissueqty": 3,
+        "issuelength": 30,
+        "renewalsallowed": 2,
+        "reservesallowed": 0,
+        "overduefinescap": null,
+        "rentaldiscount": null,
+        "fine": "0.00",
+        "finedays": 0,
+        "chargeperiod": 0
+    }
+},
+{
+    "model": "intranet.issuingrules",
+    "pk": 2,
+    "fields": {
+        "categorycode": 2,
+        "itemtype": "BK",
+        "maxissueqty": 6,
+        "issuelength": 30,
+        "renewalsallowed": 2,
+        "reservesallowed": 0,
+        "overduefinescap": null,
+        "rentaldiscount": "100.00",
+        "fine": "0.00",
+        "finedays": 0,
+        "chargeperiod": 0
+    }
+},
+{
+    "model": "intranet.issuingrules",
+    "pk": 3,
+    "fields": {
+        "categorycode": 3,
+        "itemtype": "BK",
+        "maxissueqty": 3,
+        "issuelength": 30,
+        "renewalsallowed": 2,
+        "reservesallowed": 0,
+        "overduefinescap": null,
+        "rentaldiscount": "100.00",
+        "fine": "0.00",
+        "finedays": 0,
+        "chargeperiod": 0
+    }
+},
+{
+    "model": "intranet.issuingrules",
+    "pk": 4,
+    "fields": {
+        "categorycode": 4,
+        "itemtype": "BK",
+        "maxissueqty": 3,
+        "issuelength": 15,
+        "renewalsallowed": 2,
+        "reservesallowed": 0,
+        "overduefinescap": null,
+        "rentaldiscount": "100.00",
+        "fine": "0.00",
+        "finedays": 0,
+        "chargeperiod": 0
+    }
+},
+{
+    "model": "intranet.issuingrules",
+    "pk": 5,
+    "fields": {
+        "categorycode": 5,
+        "itemtype": "BK",
+        "maxissueqty": 3,
+        "issuelength": 15,
+        "renewalsallowed": 4,
+        "reservesallowed": 2,
+        "overduefinescap": "100.00",
+        "rentaldiscount": "100.00",
+        "fine": "1.00",
+        "finedays": 1,
+        "chargeperiod": 1
+    }
+},
+{
+    "model": "intranet.issuingrules",
+    "pk": 6,
+    "fields": {
+        "categorycode": 6,
+        "itemtype": "BK",
+        "maxissueqty": 4,
+        "issuelength": 15,
+        "renewalsallowed": 2,
+        "reservesallowed": 2,
+        "overduefinescap": "100.00",
+        "rentaldiscount": "100.00",
+        "fine": "1.00",
+        "finedays": 1,
+        "chargeperiod": 1
+    }
+},
+{
+    "model": "intranet.issuingrules",
+    "pk": 7,
+    "fields": {
+        "categorycode": 7,
+        "itemtype": "BK",
+        "maxissueqty": 6,
+        "issuelength": 15,
+        "renewalsallowed": 3,
+        "reservesallowed": 3,
+        "overduefinescap": "100.00",
+        "rentaldiscount": null,
+        "fine": "1.00",
+        "finedays": 7,
+        "chargeperiod": 7
+    }
+}
+]

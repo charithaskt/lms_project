@@ -1,0 +1,70 @@
+{% from 'ko_grid.htm' import ko_grid with context %}
+{% from 'ko_grid_body.htm' import ko_grid_body with context %}
+{% extends 'base.htm' %}
+
+{% block main %}
+
+    {#
+        Overwrites 'ko_grid_body' template to use 'reserve_ko_grid_body' template for custom display of ReserveGrid.
+    #}
+    {{ ko_grid(
+        grid_options={
+            'pageRoute': view.request.url_name,
+        },
+        dom_attrs={
+            'id': 'reserve_grid',
+            'data-template-options': {
+                'templates': {
+                    'ko_grid_body': 'reserve_ko_grid_body',
+                }
+            },
+        }
+    ) }}
+
+{% do request.custom_scripts.extend([
+    'djk/js/grid.js',
+    'js/reserve-grid.js',
+]) -%}
+
+{% endblock main %}
+
+{% block bottom_scripts %}
+    {{ ko_grid_body() }}
+
+    <script type="text/template" id="reserve_ko_grid_body">
+        <div class="panel panel-primary">
+            <div data-bind="text: meta.verboseNamePlural" class="panel-heading"></div>
+            <div class="panel-body">
+                <!-- ko if: meta.hasSearch() || gridFilters().length > 0 -->
+                <div data-template-id="ko_grid_nav"></div>
+                <!-- /ko -->
+                <div data-template-id="ko_grid_table"></div>
+                <div class="default-padding">
+                    <button
+                            data-bind="click: onChangeActivation.bind($data)" type="button" class="btn btn-warning">
+                        Change activation
+                    </button>
+                </div>
+            </div>
+            <div data-template-id="ko_grid_pagination"></div>
+        </div>
+    </script>
+
+    <script type="text/template" id="reserve_note_form">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="ajax-form" enctype="multipart/form-data" method="post" role="form" data-bind="attr: {'data-url': actions.getLastActionUrl()}">
+                    <input type="hidden" name="csrfmiddlewaretoken" data-bind="value: actions.getCsrfToken()">
+                    <input type="hidden" name="pk_val" data-bind="value: getLastPkVal()">
+                    <div class="row form-group">
+                        <label data-bind="text: meta.noteLabel" class="control-label col-md-4" for="id_note"></label>
+                        <div class="field col-md-6">
+                            <textarea data-bind="textInput: meta.note" id="id_note" class="form-control autogrow" name="note" type="text"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </script>
+
+{% endblock bottom_scripts %}

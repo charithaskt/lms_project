@@ -1,0 +1,8 @@
+[% extends "opac/base_generic.html" %}
+{% block content %}
+<ul>
+{% for entry in feeds.entries %}
+    <li><a href="{{entry.link}}">{{entry.title}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

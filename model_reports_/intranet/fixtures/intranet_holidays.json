@@ -1,0 +1,92 @@
+[
+{
+    "model": "intranet.holidays",
+    "pk": 1,
+    "fields": {
+        "date": "2018-11-11",
+        "isexception": true,
+        "title": "Sunday holiday",
+        "holiday_type": "WEEKEND"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 2,
+    "fields": {
+        "date": "2018-11-10",
+        "isexception": true,
+        "title": "Weekend holiday",
+        "holiday_type": "WEEKEND"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 3,
+    "fields": {
+        "date": "2018-12-25",
+        "isexception": true,
+        "title": "Christmas",
+        "holiday_type": "YEARLY"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 4,
+    "fields": {
+        "date": "2018-10-02",
+        "isexception": true,
+        "title": "Mahatma Gandhi Jayanti",
+        "holiday_type": "YEARLY"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 5,
+    "fields": {
+        "date": "2018-01-26",
+        "isexception": true,
+        "title": "Republic day",
+        "holiday_type": "YEARLY"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 6,
+    "fields": {
+        "date": "2018-08-15",
+        "isexception": true,
+        "title": "Independence day",
+        "holiday_type": "YEARLY"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 7,
+    "fields": {
+        "date": "2018-05-01",
+        "isexception": true,
+        "title": "International Workers' Day",
+        "holiday_type": "YEARLY"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 8,
+    "fields": {
+        "date": "2018-11-07",
+        "isexception": true,
+        "title": "Deepavali",
+        "holiday_type": "ADHOC"
+    }
+},
+{
+    "model": "intranet.holidays",
+    "pk": 9,
+    "fields": {
+        "date": "2018-11-06",
+        "isexception": true,
+        "title": "Naraka Chaturdhi",
+        "holiday_type": "ADHOC"
+    }
+}
+]

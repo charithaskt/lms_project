@@ -1,0 +1,114 @@
+[
+{
+    "model": "intranet.designations",
+    "pk": 1,
+    "fields": {
+        "designation": "Asso. Professor",
+        "description": "Associate Professor"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 2,
+    "fields": {
+        "designation": "Lab Asst.",
+        "description": "Lab Assistant"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 3,
+    "fields": {
+        "designation": "Library Asst.",
+        "description": "Library Assistant"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 4,
+    "fields": {
+        "designation": "Librarian",
+        "description": "Librarian"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 5,
+    "fields": {
+        "designation": "Asst. Librarian",
+        "description": "Assistant Librarian"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 6,
+    "fields": {
+        "designation": "CAO",
+        "description": "Chief Admin Officer"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 7,
+    "fields": {
+        "designation": "Director-Academics",
+        "description": "Director (Academics)"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 8,
+    "fields": {
+        "designation": "Principal",
+        "description": "Principal"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 9,
+    "fields": {
+        "designation": "Professor",
+        "description": "Professor"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 10,
+    "fields": {
+        "designation": "Programmer",
+        "description": "Programmer"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 11,
+    "fields": {
+        "designation": "Office Asst.",
+        "description": "Office Assistant"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 12,
+    "fields": {
+        "designation": "Office Superintendent",
+        "description": "Office Superintendent"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 13,
+    "fields": {
+        "designation": "Asst. Professor",
+        "description": "Assistant Professor"
+    }
+},
+{
+    "model": "intranet.designations",
+    "pk": 14,
+    "fields": {
+        "designation": "Student",
+        "description": "Student"
+    }
+}
+]

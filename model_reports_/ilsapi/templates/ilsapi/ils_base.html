@@ -1,0 +1,66 @@
+{% extends 'ABSC/base.html' %}
+{% block title %}<title>My Library</title>{% endblock %}
+{% block additional_css %}
+        <!-- Add additional CSS in static file -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        {% load static %}
+
+{% endblock %}
+
+{% block sidebar %}
+       <strong>
+        <ul class="sidebar-nav">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'authors-list-create' %}">Authors CRUD Operations</a></li>
+          <li><a href="{% url 'genre-list-create' %}">Subjects - CRUD Operations</a></li>
+          <li><a href="{% url 'genre-byname' 'a' %}">Search Subjects</a></li>
+          <li><a href="{% url 'publishers-list-create' %}">Publishers - CRUD Operations</a></li>
+          <li><a href="{% url 'biblios-list-create' %}">Biblios - CRUD Operations</a></li>
+          <li><a href="{% url 'biblios-bytitle-list' 'T' %}">Filter Biblios by Title</a></li>
+          <li><a href="{% url 'biblios-byrange-list' '2' %}">List a Range of Biblios</a></li>
+
+          <li><a href="{% url 'biblios-bytitleregx-list' '^[a-z]' %}">Filter Biblios by title reg-expression search</a></li>
+          {% if user.is_authenticated %}
+                <li>User: <h6>({{ user.email }}) {{user.fullname}}</h6></li>
+                <li><a href="{% url 'mysuggestions-list-create' %}">Suggest Books</a></li>
+                <li><a href="{% url 'suggestions-byownerid' '1'%}">Filter Suggestions by Owner Id</a></li>
+                <li><a href="{% url 'suggestions-byownercardnumber' '18j41a0501' %}">Filter Suggestions by Cardnumber</a></li>
+                <li><a href="{% url 'suggestions-byowneremail' 'rajujogi.t@gmail.com' %}">Filter Suggestions by Email</a></li>
+                <li><a href="{% url 'borrowers-list-create' %}">Borrowers - CRUD Operations</a></li>
+
+                <li><a href="{% url 'profile-list' %}">List Patron Profiles</a></li>
+                <li><a href="{% url 'patronsphotos-list-create' %}">Upload & Attach Patron Photo</a></li>
+                <li><a href="{% url 'patronphoto-detail' '1' %}">Change Patron Photo</a></li>
+                <li><a href="{% url 'localcoverimages-list-create' %}">Upload & Attach Local Cover Image</a></li>
+                <li><a href="{% url 'localcoverimage-detail' '1' %}">Change Local Cover Image</a></li>
+                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+          {% else %}
+                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+          {% endif %}
+        </ul>
+        </strong>
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block pagination %}
+        {% if is_paginated %}
+          <div class="pagination">
+            <span class="page-links">
+              {% if page_obj.has_previous %}
+                <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+            </span>
+          </div>
+        {% endif %}
+{% endblock %}
+path('patronphoto/<int:pk>/',api_views.PatronPhotosDetailView.as_view(), name="patronphoto-detail"),
+    path('localcoverimages/',api_views.ListCreateLocalCoverImagesView.as_view(), name="localcoverimages-list-create"),
+    path('localcoverimage/<int:pk>/',api_views.LocalCoverImageDetailView.as_view(), name="localcoverimage-detail"),
+

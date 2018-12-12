@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    {% block title %}<title>My Library</title>{% endblock %}</title>
+    <meta name="description" content="" />
+    <meta name="author" content="library">
+    {% load static %}
+    <link rel="shortcut icon" href="images/library_logo.png" />		
+    <link href="{% static 'ABSC/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ABSC/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'ABSC/css/camera.css' %}" rel="stylesheet">-->
+    <link href="{% static 'ABSC/css/library_style.css' %}" rel="stylesheet">
+    {% load static %}
+    {% block additional_css %}
+    {% endblock %}
+    {% block extra_head %}
+    {% endblock %}
+    {% load static %}
+    <style>
+       body {
+               background-color: #aadaec;
+       }
+    </style>
+    {% load static %}
+  </head>
+<body class="container_wrapper">
+{% block banner %}
+{% endblock %}
+
+<div class="container_wrapper">
+    <div id="library_banner_menu">
+        <div class="container-fluid">
+            <div class="col-xs-4 library_logo">
+                {% load static %}
+            	<a href="{% url 'absc-home' %}">
+                	<img src="{% static 'ABSC/images/library_logo.png' %}" id="logo_img" alt="logo" title="Integrated Library System" />
+                	<h1 id="logo_text">ILS<span></span></h1>
+                </a>
+                {% load static %}
+            </div>
+            <div class="col-sm-8 hidden-xs">
+                <ul class="nav nav-justified">
+                           	
+                    <li><a href="#library_about">Home</a></li>
+                    <li><a href="{% url 'catalog-search' %}" class="external-link">Search</a></li>
+                    <li><a href="{% url 'login' %}" class="external-link">LogIn</a></li>
+                    <li><a rel="nofollow" href="{% url 'signup' %}" class="external-link">SignUp</a></li>
+                    <li><a href="#library_contact">Contact</a></li>
+                    <li><a href="{% url 'absc-home' %}" class="external-link">OPAC</a></li>
+                    <li><a href="{% url 'ase-home' %}" class="external-link">Intranet</a></li>
+                 </ul>
+            </div>
+            <div class="col-xs-8 visible-xs">
+                <a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+   <div calss="row">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-3">
+          <br/><br/><br/><br/><br/>
+          {% block sidebar %}
+          {% endblock %}
+        </div>
+        <div class="col-sm-9">
+          <br/><br/><br/><br/><br/>
+          {% block content %}
+          {% endblock %}
+      
+          {% block pagination %}
+          {% endblock %} 
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block home_content %}
+   <div id="library_about" class="container_wapper">
+    <div class="container-fluid">
+        <h1>About</h1>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <a href="{% url 'login' %}" class="external-link"><div class="imgwap mission"><i class="fa fa-user"></a></i></div>
+            <h2>LogIn</h2>
+          
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <a href="{% url 'signup' %}" class ="external-link"><div class="imgwap product"><i class="fa fa-user"></a></i></div>
+            <h2>SignUp</h2>
+            
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+           <a href="{% url 'catalog-search' %}" class="external-link"> <div class="imgwap product"><i class="fa fa-search"></a></i></div>
+            <h2>Search</h2>
+            
+        </div>
+        <center>
+        <div id="library_events" class="container_wapper">
+           <div class="container-fluid">
+             <h1>Books</h1>
+             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+                <div class="event_box_wap event_animate_left" style='width:60%'>
+                   <div class="event_box_img">
+                    {% load static %} 		
+                    <img src="{% static 'ABSC/image/the-fifth-season.jpg' %}" class="img-responsive" alt="" />
+                    {% load static %}
+                   </div>
+                   <div class="event_box_caption">
+                    <h1>The Fifth Season</h1>
+                    <p><span class="glyphicon glyphicon-map-marker"></span> Srictiy,tada,Andhra Pradesh &nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> 8:00 AM to 8:00 PM</p>
+                    <p>The Fifth Season is a 2015 science fantasy novel by N. K. Jemisin.[1][2] It was awarded the Hugo Award for Best Novel in 2016. It is the first volume in the Broken Earth series and is followed by The Obelisk Gate and The Stone Sky. </p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+                <div class="event_box_wap event_animate_right" style='width:60%'>
+                   <div class="event_box_img">
+                    {% load static %} 		
+                    <img src="{% static 'ABSC/image/letusc.jpg' %}" class="img-responsive" alt="" />
+                    {% load static %} 
+                   </div>
+                   <div class="event_box_caption">
+                     <h1>Let Us C</h1>
+                     <p><span class="glyphicon glyphicon-map-marker"></span> Srictiy,tada,Andhra Pradesh &nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> 8:00 AM to 8:00 PM </p>
+                     <p>Yashwant Kanetkar is an Indian computer science author, known for his books on programming languages. He has authored several books on topics such as C, C++, VC++, C#, . ...</p>
+                   </div>
+                </div>
+             </div>
+             <div class="clearfix"></div>
+                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+                   <div class="event_box_wap event_animate_left" style='width:60%'>
+                      <div class="event_box_img">
+                         {% load static %} 		
+                         <img src="{% static 'ABSC/image/the-dark-night.jpeg' %}" class="img-responsive" alt="" />
+                         {% load static %}                    
+                      </div>
+                      <div class="event_box_caption">
+                         <h1>The Dark Night</h1>
+                         <p><span class="glyphicon glyphicon-map-marker"></span> Srictiy,tada,Andhra Pradesh &nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> 8:00 AM to 8:00 PM </p>
+                         <p>The Dark Knight Rises is a 2012 American-British superhero film directed by Christopher Nolan, who co-wrote the screenplay with his brother Jonathan Nolan, and the story with David S. Goyer.[5]</p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+                   <div class="event_box_wap event_animate_right" style='width:60%'>
+                      <div class="event_box_img">
+                         {% load static %} 		
+                         <img src="{% static 'ABSC/image/datascience.jpeg' %}" class="img-responsive" alt="" />
+                         {% load static %}                    
+                      </div>
+                      <div class="event_box_caption">
+                         <h1>Operting System</h1>
+                         <p><span class="glyphicon glyphicon-map-marker"></span> Srictiy,tada,Andhra Pradesh &nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> 8:00 AM to 8:00 PM </p>
+                         <p>An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs.</p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+        </div>
+        </center>
+  
+        <div id="library_contact" class="container_wapper">
+           <div class="container-fluid">
+              <h1>Contact</h1>
+              <div class="col-md-4">
+                 <h2>Contact Info.</h2>
+                 <p>For more details,you can contact with given address or given contact number,or you can mail to ils.</p>
+                 <br>
+                 <p><strong>Email:</strong> ils@gmail.com<br /><strong>Phone:</strong> 9876543210<br /><strong>Website:</strong> www.ils.com<br /><strong>Address:</strong> Srictiy,tada,Andhra Pradesh</p>
+                 <ul class="list-inline social-link">
+                   <li>
+                     <a href="#"><i class="fa fa-linkedin"></i></a> 
+                   </li>
+                   <li>
+                     <a href="#"><i class="fa fa-twitter"></i></a> 
+                   </li>
+                   <li>
+                     <a href="#"><i class="fa fa-facebook"></i></a> 
+                   </li>
+                   <li>
+                     <a href="#"><i class="fa fa-youtube"></i></a> 
+                   </li>
+                   <li>
+                     <a href="#"><i class="fa fa-github"></i></a> 
+                   </li>
+                 </ul>
+              </div>
+              <form action="#" method="post" class="col-md-8">
+                <div class="row">
+                   <div class="col-md-12">
+                      <h2>Send Enquiry</h2>
+                   </div>
+                   <div class="col-md-6">
+                      <p>Name</p>
+                      <input type="text" name="name" id="name" placeholder="Your Name" />
+                   </div>
+                   <div class="col-md-6">
+                      <p>Email</p>
+                      <input type="text" name="email" id="email" placeholder="Your Email" />
+                   </div>
+                   <div class="col-md-12">
+                      <p>Subject</p>
+                      <input type="text" name="subject" id="subject" placeholder="Subject" />
+                   </div>
+                   <div class="col-md-12">
+                      <p>Message</p>
+                      <textarea name="message" id="message"  placeholder="Write your message here..."></textarea>
+                   </div>
+                   <div class="col-xs-6 col-sm-3 col-md-offset-6">
+                      <button type="submit">Send</button>
+                   </div>
+                   <div class="col-xs-6 col-sm-3">
+                      <button type="reset">Reset</button>
+                   </div>
+                </div>
+              </form>
+           </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+        <div id="library_footer">
+           <div>
+              <p id="footer">Copyright &copy; 2018 Integrated Library System</p>
+           </div>
+        </div> 
+        {% endblock %}
+{% block javascript %}
+        {% load static %}
+	<script src="{% static 'ABSC/js/jquery.min.js' %}"></script>
+	<script src="{% static 'ABSC/js/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'ABSC/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'ABSC/js/jquery.singlePageNav.min.js' %}"></script>
+	<script src="{% static 'ABSC/js/unslider.min.js' %}"></script>
+	<script src="{% static 'ABSC/js/library_script.js' %}"></script>
+	{% load static %}   
+{% endblock %}
+</body>
+</html>

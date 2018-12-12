@@ -1,0 +1,25 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <h2>List of All Visitors' Entry/Exit Logs</h2>
+  {% if entryexitlogs_list %}
+  <ul>
+    {% for log in entryexitlogs_list %}
+      <li>
+       <a href="{{ log.get_absolute_url }}"> <strong>{{ log.id }}</a> </strong> 
+      </li>
+      <p><strong>Cardnumber :</strong> {{ log.cardnumber }}</p> 
+      {% if log.borrower %} 
+           <p><strong>Visitor's Name :</strong> {{ log.borrower.title }} {{log.borrower.firstname}} {{log.borrower.surname}}</p> 
+           <p><strong>Visitor's Department :</strong> {{ log.borrower.department.description }}</p> 
+           <p><strong>Visitor's Designation :</strong> {{log.borrower.designation.description}} </p>
+      {% endif %}     
+      <p><strong>Time-in :</strong> {{log.timeofentry }}</p>
+      <p><strong>Time-out :</strong> {{log.timeofexit }}</p>
+      <p><strong>Time-spent :</strong> {{log.timespent }}</p>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no logs in the gate register.</p>
+  {% endif %}       
+{% endblock %}

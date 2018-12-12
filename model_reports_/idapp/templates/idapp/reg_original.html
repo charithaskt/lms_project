@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration </title>
+    <style>
+        table {
+            background-color: gainsboro;
+        }
+        th{ padding: 20px;
+            background-color: bisque;
+            font-family: Calibri;
+            font-size: 24px;
+        }
+        td {padding: 15px;
+            font-size: 20px;
+            font-family: "Comic Sans MS";
+        }
+        body{
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+
+<form method="post" action="{% url 'index' %}">
+    {{  csrf_token }}
+    <center>
+    <table>
+        <br><br><br><br><br><br><br><br>
+        <th colspan="2">Enter The Details</th>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email"/></td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button>Submit Form</button>
+            </td>
+        </tr>
+    </table>
+    </center>
+</form>
+</body>
+</html>

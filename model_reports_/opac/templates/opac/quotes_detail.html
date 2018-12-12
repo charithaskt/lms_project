@@ -1,0 +1,12 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Quotation [Id : {{quotations.pk}} ]</h4>
+      <hr>
+      <p><strong>Text:</strong> {{ quotations.text }}</p>
+      {%if quotations.source %}<p><strong>Source : </strong> {{ quotations.source }} {% endif %}</p>
+      <p><strong>Added On : </strong> {{ quotations.timestamp }}</p>      
+  
+  </div>
+{% endblock %}

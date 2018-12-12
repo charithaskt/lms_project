@@ -1,0 +1,18 @@
+{% extends "opac/base_generic.html" %}
+
+{% block content %}
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Gate Register Entry [ID : {{entryexitlogs.pk}} ]</h4>
+      <hr>
+      <p><strong>Visitor's Cardnumber:</strong> {{ entyexitlogs.cardnumber }}</p>
+      {%if entryexitlogs.borrower %}
+          <p><strong>Borrower Name : </strong> {{ entryexitlogs.borrower.title }} {{ entryexitlogs.borrower.firstname }} {{ entryexitlogs.borrower.surname }}</p>
+          <p><strong>Borrower Category : </strong> {{ entryexitlogs.borrower.category.description }} </p>
+          <p><strong>Borrower Department : </strong> {{ entryexitlogs.borrower.department.description }} </p>
+          <p><strong>Borrower Designation : </strong> {{ entryexitlogs.borrower.department.designation }} </p>
+      {% endif %}
+      <p><strong>Time of Entry : </strong> {{ entryexitlogs.timeofentry }}</p>      
+      <p><strong>Time of Exit : </strong> {{ entryexitlogs.timeofexit }}</p>      
+      <p><strong>Time of Spent : </strong> {{ entryexitlogs.timespent }}</p>      
+  </div>
+{% endblock %}

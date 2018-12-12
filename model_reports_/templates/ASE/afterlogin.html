@@ -1,0 +1,267 @@
+{% extends 'opac/base_generic.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'ASE/favicon.png' %}" />		
+    <link href="{% static 'ASE/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ASE/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ASE/css/afterlogin.css' %}" rel="stylesheet">
+    {% load static %}
+    <!--<link href="css/camera.css" rel="stylesheet">-->
+  </head>
+<body>
+<div class="container_wapper">
+    <div id="lib_banner_menu">
+        <div class="container-fluid">
+            <div class="col-xs-4 lib_logo">
+    		{% load static %}
+            	<a href="#">
+                	<img src="{% static 'ASE/favicon.png' %}" id="logo_img" />
+                	<h1 id="logo_text">ILMS<span></span></h1>
+                </a>
+    	        {% load static %}
+            </div>
+            <form class="form-inline mr-auto" style="padding:10px;margin:5px;float:left" >
+                    <input class="form-control mr-sm-0" type="text" placeholder="Search" style="height: 50px;">
+                    <!--<button class="btn btn-light" type="submit"style="background-color:white;color:orange">Search</button>-->
+            </form>
+            <div class="col-sm-4 hidden-xs" style="float:right">
+                    <div class="btn-group">
+                            <button type="button" class="btn btn1 btn-warning" onclick="location.href='#profile'">Profile</button>
+                            <div class="btn-group">
+                                    <button type="button" class="btn btn1 btn-warning dropdown-toggle" data-toggle="dropdown">
+                                       Lists
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <h5 class="dropdown-header">Public Lists</h5>
+                                        <a class="dropdown-item" href="#">Link</a>
+                                        <a class="dropdown-item" href="#">Link</a>
+                                        <a class="dropdown-item" href="#">Link</a>
+                                        <h5 class="dropdown-header">Your Lists</h5>
+                                        <a class="dropdown-item" href="#">link</a>
+                                    </div>
+                                  </div>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn1 btn-warning dropdown-toggle" data-toggle="dropdown">
+                                 Cart
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Nothing Yet</a>
+                              </div>
+                            </div>
+                          </div>
+            </div>
+            <div class="col-xs-8 visible-xs">
+                <a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div id="lib_about" class="container_wapper">
+    <div class="container-fluid">
+        <h1>Options</h1>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap mission"><i class="fa fa-tags"></i></div>
+            <h2>View Tags</h2>
+            <p>Classify books based on tags.</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap product"><i class="fa fa-search"></i></div>
+            <h2>Recent Comments</h2>
+            <p>Latest comments on books.</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap testimonial"><i class="fa fa-list-ul"></i></div>
+            <h2>Purchase Suggestions</h2>
+            <p>Suggestions based on patron data.</p>
+        </div>
+        <div class="col-sm-6 col-md-3 about_icon">
+            <div class="imgwap statistic"><i class="fa fa-book"></i></div>
+            <h2>Course Reserves</h2>
+            <p>Course wise popular selections.</p>
+        </div>
+    <div id="lib_events" class="container_wapper">
+    <div class="container-fluid">
+        <h1>Trending Books</h1>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_left">
+                <div class="event_box_img">
+                    {% load static %}
+                    <img src="{% 'ASE/images/bookcovers/36949995.jpg' %}" class="img-responsive" alt="Web Design Trends" />
+                    {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>Boneless Mercies</h1>
+                    <p>April Geneviene Tucholke</p>
+                    <p>A dark standalone YA fantasy about a band of mercenary girls in search of female glory. Frey, Ovie, Juniper, and Runa are the Boneless Mercies—girls hired to kill quickly, quietly, and mercifully. But Frey is weary of the death trade and, having been raised on the heroic sagas of her people, dreams</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_right">
+                <div class="event_box_img">
+                    {% load static %}
+                    <img src="{% static 'ASE/images/bookcovers/36670752.jpg' %}" class="img-responsive" alt="Free Bootstrap Seminar" />
+                    {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>Marilla Of Green Gables</h1>
+                    <p>Sarah McCoy</p>
+                    <p>A bold, heartfelt tale of life at Green Gables . . . before Anne: A marvelously entertaining and moving historical novel, set in rural Prince Edward Island in the nineteenth century, that imagines the young life of spinster Marilla Cuthbert, and the choices that will open her life to the possibility ..</p>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_left">
+                <div class="event_box_img">
+                    {% load static %}
+                    <img src="{% static 'ASE/images/bookcovers/36952596.jpgi' %}`" class="img-responsive" alt="" />
+                    {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>Blanca And Roja</h1>
+                    <P>Anna Marie McLemore</P>
+                    <p>The biggest lie of all is the story you think you already know. The del Cisne girls have never just been sisters; they’re also rivals, Blanca as obedient and graceful as Roja is vicious and manipulative. They know that, because of a generations-old spell, their family is bound to a bevy of swans dee ..</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="event_box_wap event_animate_right">
+                <div class="event_box_img">
+                     {% load static %}
+                    <img src="{% static 'ASE/images/bookcovers/37007910.jpg' %}" class="img-responsive" alt="" />
+                     {% load static %}
+                </div>
+                <div class="event_box_caption">
+                    <h1>The Witch of Willow Hall</h1>
+                    <p>Hester Fox</p>
+                    <p>Two centuries after the Salem witch trials, there’s still one witch left in Massachusetts. But she doesn’t even know it. Take this as a warning: if you are not able or willing to control yourself, it will not only be you who suffers the consequences but those around you, as well. New Oldbury, 1821 I ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container">
+        <h1>Profile</h1>
+        <br>
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#sum">Summary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#fine">Fines</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#perd">Personal Details</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#tags">Tags</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#cpwd">Change Password</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#list">Lists</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#hist">History</a>
+          </li>
+        </ul>
+      
+        <!-- Tab panes -->
+        <div class="tab-content" id="profile">
+          <div id="sum" class="container tab-pane active"><br>
+            <h3>SUMMARY</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div id="fine" class="container tab-pane fade"><br>
+            <h3>FINES</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div id="perd" class="container tab-pane fade"><br>
+            <div id="lib_signup" class="container_wapper">
+                    <div class="container-fluid">    
+                            <h1>UPDATE PROFILE</h1>
+                            <form action="#" method="post" class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-2">
+                                   <input type="text" name="fname" id="fname" placeholder="Your First Name" />
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="lname" id="lname" placeholder="Your Last Name" />
+                                </div>
+                                <div class="col-md-8 col-md-offset-2">
+                                    <input type="text" name="password" id="password" placeholder="Password" />
+                                </div>
+                                <div class="col-xs-6 col-sm-3 col-md-offset-3">
+                                    <button class="btn btn-dark" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+          </div>
+          <div id="tags" class="container tab-pane fade"><br>
+            <h3>TAGS</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          </div>
+          <div id="cpwd" class="container tab-pane fade"><br>
+            <div id="lib_signup" class="container_wapper">
+            <div class="container-fluid">    
+                    <h1>CHANGE PASSWORD</h1>
+                    <form action="#" method="post" class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                           <input type="text" name="cpass" id="cpass" placeholder="Your Current Password" />
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <input type="text" name="npass" id="npass" placeholder="Your New Password" />
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <input type="text" name="cpassword" id="cpassword" placeholder="Retype New Password" />
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-offset-5">
+                            <button class="btn btn-dark" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+          <div id="list" class="container tab-pane fade"><br>
+            <h3>LISTS</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          </div>
+          <div id="hist" class="container tab-pane fade"><br>
+            <h3>HISTORY</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          </div>
+        </div>
+      </div>
+{% load static %}
+<link rel="stylesheet" href="{% static 'ASE/css/styles.css' %}">
+<script src="{% static 'ASE/js/jquery.min.js"></script>
+<script src="{% static 'ASE/js/jquery-ui.min.js"></script>
+<script src="{% static 'ASE/js/bootstrap.min.js"></script>
+<script src="{% static 'ASE/js/jquery.singlePageNav.min.js"></script>
+<script src="{% static 'ASE/js/unslider.min.js"></script>
+{% load static %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+{% load static %}
+<script src="{% static 'ASE/js/lib_script.js' %}"></script>
+{% load static %}      
+</body>
+</html>

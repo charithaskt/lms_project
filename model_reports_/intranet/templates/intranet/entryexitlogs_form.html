@@ -1,0 +1,92 @@
+{% extends "ajax-base.html" %}
+
+{% block content %}
+<div class='col-9 offset-md-3'>
+    <h1>Gate Register : A Record of Entry/Exit Time of Library Visitors</h1>
+    <form class='my-ajax-form' method='POST'  data-url=''>
+    
+    {{ form.as_p|safe }}
+    <input class='btn btn-default' type='submit' value='Submit' />
+    <!-- <button type='submit'>Submit</button>-->
+    </form>
+</div>
+   <div class='col-9 offset-md-3'>
+   	<div class='my-ajax-div'> </div>
+   </div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+// using jQuery
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+
+$(document).ready(function(){
+    var $myForm = $('.my-ajax-form')
+    var $myDiv = $('.my-ajax-div')
+    var $mydata;
+    $myForm.submit(function(event){
+        event.preventDefault()
+        var $formData = $(this).serialize()
+        $mydata = $formData
+        console.log($mydata)
+        #var $detailURL = $myForm.attr('data-url')
+        var $thisURL = window.location.href
+        $.ajax({
+            method: "POST",
+            url: $thisURL,
+            data: $formData,
+            success: handleFormSuccess,            
+            error: handleFormSuccess,            
+        })
+    })
+
+    function handleFormSuccess(data, textStatus, jqXHR){
+        console.log(data)
+        console.log(textStatus)
+        console.log(jqXHR)
+        $myForm[0].reset(); // reset form data
+        $visitors = $mydata.match(/(visitors=)([^&]+)/)
+        $time_spent = $mydata.match(/(time_spent=)([^&]+)/)
+        for($v=0;$v<$visitors.length();$v++)
+        do
+           $myDiv.append('<li><font size="2"><strong><a href="'+$detailURL +'">"
+               + $visitor.pk +"</a> "  + $visitor.cardnumber + " :: " 
+               + $visitor.timeofentry + " :: " + $visitor.timeofexit 
+               + " :: " + $time_spent[$v]
+               + '</strong></font></li>')
+        done
+    }
+    
+})
+</script>
+{% endblock %}

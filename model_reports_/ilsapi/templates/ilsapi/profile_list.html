@@ -1,0 +1,10 @@
+{% extends 'opac/base_generic.html' %}
+{% block title %} <title>Prifiles - REST API</title>{% endblock %}
+{% block content %}
+<h1>Profiles</h1>
+<ul>
+    {% for profile in profiles %}
+    <li>[{{profile.id}}] {{profile.surname}}, {{ profile.firstname }} ({{profile.userid}})</li>
+    {% endfor %}
+</ul>
+{% endblock %}

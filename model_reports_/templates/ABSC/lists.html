@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+    <meta name="description" content="" />
+    <meta name="author" content="library">
+    <link rel="shortcut icon" href="images/library_logo.png" />		
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/camera.css" rel="stylesheet">
+    <link href="css/library_style.css" rel="stylesheet">
+    
+  </head>
+  <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+</style>
+<body>
+
+<div id="library_mobile_menu">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="home.html" class="external-link"><i class="glyphicon glyphicon-home"></i> &nbsp; Home</a></li>
+            <li><a href="staff.html" class="external-link"><i class="glyphicon glyphicon-user"></i> &nbsp; Staff</a></li>
+             </ul>
+</div>
+<div class="container_wapper">
+    <div id="library_banner_menu">
+        <div class="container-fluid">
+            <div class="col-xs-4 library_logo">
+            	<a href="#">
+                	<img src="images/library_logo.png" id="logo_img" alt="" title="Integrated Library System"/>
+                	<h1 id="logo_text">ILS<span></span></h1>
+                </a>
+            </div>
+           <div class="col-sm-3 hidden-xs" style="float:right">
+                <ul class="nav nav-justified">
+                    <li><a href="home.html" class="external-link"">Home</a></li>
+                    <li><a rel="nofollow" href="staff.html" class="external-link">Staff</a></li>
+                    
+                 </ul>
+            </div>
+            <div class="col-xs-8 visible-xs">
+                <a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="library_about" class="container_wapper">
+    <div class="container-fluid">
+    	<br><br><br>
+        <h1>Logs</h1>
+        <table style="width:100%">
+  <tr>
+    <th>List name</th>
+    <th>Contents</th>
+    <th>Type</th>
+    <th>Owner</th>
+    <th>Sort by</th>
+    <th>Creation date</th>
+    <th>Modification date</th>
+    <th>Actions</th>
+    
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="List name"></td>
+    <td></td>
+    <td></td>
+     <th><input type="text" placeholder="Owner"></th>
+     <th><select>
+		  <option value="title">Title</option>
+		  <option value="author">Author</option>
+		  <option value="copyrightdate">Copy right date</option>
+		  <option value="callnumber">Callnumber</option>
+		</select></th>
+	 <td></td>
+	 <td></td>
+	 <td></td>
+  </tr>
+</table>
+ 
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/library_script.js"></script>
+</body>
+</html>

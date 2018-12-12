@@ -1,0 +1,22 @@
+{% block content %}
+    <h2>Login</h2>
+    <script>
+
+        function removeRequired() {
+            if (document.getElementById("pass").hasAttribute("required")) {
+                document.getElementById("pass").removeAttribute("required");
+            }
+        }
+
+    </script>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="action" value="login">
+        <input type="submit" name="action" value="forgot" onClick="removeRequired()"></br></br>
+    </form>
+    <form>
+        <input type="submit" formaction="{% url 'home' %}" value="home"></br></br>
+        <input type="submit" formaction="{% url 'signup' %}" value="signup">
+    </form>
+{% endblock %}
